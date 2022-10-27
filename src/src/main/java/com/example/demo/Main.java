@@ -56,7 +56,7 @@ public class Main extends Application {
         Scene gameScene = new Scene(gameRoot, WIDTH, HEIGHT, Color.rgb(189, 177, 92));
         setGameScene(gameScene);
         primaryStage.setScene(menuScene);
-        menuScene menuScene1 = new menuScene();
+        sceneController menuScene1 = new sceneController();
         menuScene1.setPrimaryStage(primaryStage);
         primaryStage.show();
     }

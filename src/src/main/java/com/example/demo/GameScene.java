@@ -194,6 +194,7 @@ class GameScene {
         if (des + sign < n && des + sign >= 0) {
             if (cells[i][des + sign].getNumber() == cells[i][j].getNumber() && !cells[i][des + sign].getModify()
                     && cells[i][des + sign].getNumber() != 0) {
+                GameScene.this.sumCellNumbersToScore();
                 return true;
             }
         }
@@ -213,6 +214,8 @@ class GameScene {
         if (des + sign < n && des + sign >= 0)
             if (cells[des + sign][j].getNumber() == cells[i][j].getNumber() && !cells[des + sign][j].getModify()
                     && cells[des + sign][j].getNumber() != 0) {
+                GameScene.this.sumCellNumbersToScore();
+
                 return true;
             }
         return false;
@@ -292,7 +295,6 @@ class GameScene {
                     } else if (key.getCode() == KeyCode.RIGHT) {
                         GameScene.this.moveRight();
                     }
-                    GameScene.this.sumCellNumbersToScore();
                     scoreText.setText(score + "");
                     haveEmptyCell = GameScene.this.haveEmptyCell();
                     if (haveEmptyCell == -1) {

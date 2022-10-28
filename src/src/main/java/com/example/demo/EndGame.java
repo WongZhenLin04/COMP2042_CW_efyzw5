@@ -12,10 +12,13 @@ import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+import java.io.*;
 import java.util.Optional;
+import java.util.Scanner;
 
 
 public class EndGame {
+    private long score;
     private static EndGame singleInstance = null;
     private EndGame(){
 
@@ -25,8 +28,22 @@ public class EndGame {
             singleInstance= new EndGame();
         return singleInstance;
     }
-
+    public String getHighscore(){
+        try {
+            File scoreFile = new File("highScore.txt");
+            Scanner reader = new Scanner(scoreFile);
+            return reader.nextLine();
+        }catch (FileNotFoundException e){
+            e.printStackTrace();
+            return "0";
+        }
+    }
+    public boolean newHighscore(){
+        return Integer.parseInt(getHighscore()) < (score);
+    }
     public void endGameShow(Scene endGameScene, Group root, Stage primaryStage,long score){
+        this.score=score;
+        System.out.println(newHighscore());
         Text text = new Text("GAME OVER");
         text.relocate(250,250);
         text.setFont(Font.font(80));
@@ -43,7 +60,7 @@ public class EndGame {
         quitButton.setPrefSize(100,30);
         quitButton.setTextFill(Color.PINK);
         root.getChildren().add(quitButton);
-        quitButton.relocate(100,800);
+        quitButton.relocate(100,300);
         quitButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {

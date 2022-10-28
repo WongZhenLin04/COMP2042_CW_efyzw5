@@ -260,6 +260,8 @@ class GameScene {
     }
 
     void game(Scene gameScene, Group root, Stage primaryStage, Scene endGameScene, Group endGameRoot) {
+        root.setLayoutX(150.0);
+        root.setLayoutY(25);
         this.root = root;
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
@@ -273,10 +275,10 @@ class GameScene {
         root.getChildren().add(text);
         text.setText("SCORE :");
         text.setFont(Font.font(30));
-        text.relocate(750, 100);
+        text.relocate(850, 100);
         Text scoreText = new Text();
         root.getChildren().add(scoreText);
-        scoreText.relocate(750, 150);
+        scoreText.relocate(900, 200);
         scoreText.setFont(Font.font(20));
         scoreText.setText("0");
 

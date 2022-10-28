@@ -2,6 +2,7 @@ package com.example.demo;
 
 import javafx.application.Application;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
@@ -9,6 +10,7 @@ import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
@@ -18,7 +20,7 @@ import javafx.scene.shape.Rectangle;
 import java.util.Scanner;
 
 public class Main extends Application {
-    static final int WIDTH = 1000;
+    static final int WIDTH = 1250;
     static final int HEIGHT = 768;
 
 
@@ -34,6 +36,22 @@ public class Main extends Application {
         menuScene.setOnKeyPressed(new EventHandler<KeyEvent>() {
             @Override
             public void handle(KeyEvent event) {
+                if ((event.getCode()== KeyCode.D)&&(sceneController.getDogeKeysPressed()==0)){
+                    sceneController.dogeKeyIncrement();
+                }
+                else if ((event.getCode()== KeyCode.O)&&(sceneController.getDogeKeysPressed()==1)){
+                    sceneController.dogeKeyIncrement();
+                }
+                else if ((event.getCode()== KeyCode.G)&&(sceneController.getDogeKeysPressed()==2)){
+                    sceneController.dogeKeyIncrement();
+                }
+                else if ((event.getCode()== KeyCode.E)&&(sceneController.getDogeKeysPressed()==3)){
+                    sceneController.setDogeKeysPressed(0);
+                    System.out.println("congrats");
+                }
+                else{
+                    sceneController.setDogeKeysPressed(0);
+                }
             }
         });
 

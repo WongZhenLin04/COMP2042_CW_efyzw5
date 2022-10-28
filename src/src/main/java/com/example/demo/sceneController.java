@@ -12,6 +12,16 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class sceneController {
+    private int DogeKeysPressed=0;
+    public int getDogeKeysPressed() {
+        return DogeKeysPressed;
+    }
+    public void setDogeKeysPressed(int dogeKeysPressed) {
+        this.DogeKeysPressed = dogeKeysPressed;
+    }
+    public void dogeKeyIncrement() {
+        this.DogeKeysPressed += 1;
+    }
     private Stage primaryStage;
     private Group gameRoot;
     private Scene gameScene;

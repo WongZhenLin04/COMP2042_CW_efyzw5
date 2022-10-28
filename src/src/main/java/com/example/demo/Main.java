@@ -22,6 +22,7 @@ import java.util.Scanner;
 public class Main extends Application {
     static final int WIDTH = 1250;
     static final int HEIGHT = 768;
+    static boolean dogeMode=false;
 
 
     @Override
@@ -47,7 +48,8 @@ public class Main extends Application {
                 }
                 else if ((event.getCode()== KeyCode.E)&&(sceneController.getDogeKeysPressed()==3)){
                     sceneController.setDogeKeysPressed(0);
-                    System.out.println("congrats");
+                    System.out.println("dog");
+                    dogeMode=true;
                 }
                 else{
                     sceneController.setDogeKeysPressed(0);

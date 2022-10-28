@@ -13,6 +13,12 @@ import java.io.IOException;
 
 public class sceneController {
     private int DogeKeysPressed=0;
+    private Stage primaryStage;
+    private Group gameRoot;
+    private Scene gameScene;
+    private Parent getAccountRoot;
+    private Scene getAccountScene;
+
     public int getDogeKeysPressed() {
         return DogeKeysPressed;
     }
@@ -22,19 +28,22 @@ public class sceneController {
     public void dogeKeyIncrement() {
         this.DogeKeysPressed += 1;
     }
-    private Stage primaryStage;
-    private Group gameRoot;
-    private Scene gameScene;
     public void setGameScene(Scene gameScene) {
         this.gameScene = gameScene;
     }
     public void setGameRoot(Group gameRoot) {
         this.gameRoot = gameRoot;
     }
+    public void setGetAccountRoot(Parent getAccountRoot) {
+        this.getAccountRoot = getAccountRoot;
+    }
+    public void setGetAccountScene(Scene getAccountScene) {
+        this.getAccountScene = getAccountScene;
+    }
     public void setPrimaryStage(Stage primaryStage){
         this.primaryStage=primaryStage;
     }
-    public void switchFromMenuToGame(){
+    public void switchFromProfileToGame(){
         setGameRoot(new Group());
         setGameScene(new Scene(gameRoot, Main.WIDTH, Main.HEIGHT, Color.rgb(189, 177, 92)));
         GameScene game = new GameScene();
@@ -43,9 +52,19 @@ public class sceneController {
         game.game(gameScene, gameRoot, primaryStage, endGameScene, endgameRoot);
         primaryStage.setScene(gameScene);
     }
+    public void switchFromMenuToProfile() throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("accountsScene.fxml"));
+        setGetAccountRoot(loader.load());
+        setGetAccountScene(new Scene(getAccountRoot, Main.WIDTH, Main.HEIGHT));
+        primaryStage.setScene(getAccountScene);
+    }
     public void detectStartButton(ActionEvent event) throws IOException{
         primaryStage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        switchFromMenuToGame();
+        switchFromMenuToProfile();
+    }
+    public void detectAccountChosen(ActionEvent event) throws IOException{
+        primaryStage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        switchFromProfileToGame();
     }
 
 }

@@ -37,4 +37,5 @@ public class sceneController {
         primaryStage = (Stage)((Node)event.getSource()).getScene().getWindow();
         switchFromMenuToGame();
     }
+
 }

@@ -1,11 +1,10 @@
 package com.example.demo;
 
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Group;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
+import javafx.scene.*;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
@@ -58,13 +57,12 @@ public class sceneController {
         setGetAccountScene(new Scene(getAccountRoot, Main.WIDTH, Main.HEIGHT));
         primaryStage.setScene(getAccountScene);
     }
-    public void detectStartButton(ActionEvent event) throws IOException{
+    public void detectStartButton(Event event) throws IOException{
         primaryStage = (Stage)((Node)event.getSource()).getScene().getWindow();
         switchFromMenuToProfile();
     }
-    public void detectAccountChosen(ActionEvent event) throws IOException{
+    public void detectAccountChosen(Event event) throws IOException{
         primaryStage = (Stage)((Node)event.getSource()).getScene().getWindow();
         switchFromProfileToGame();
     }
-
 }

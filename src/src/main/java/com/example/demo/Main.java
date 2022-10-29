@@ -16,7 +16,9 @@ import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.media.*;
 
+import java.io.File;
 import java.util.Scanner;
 
 public class Main extends Application {
@@ -29,6 +31,9 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception {
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("mainMenu.fxml"));
+        String musicFile = "bork.mp3";
+        Media bork = new Media(new File(musicFile).toURI().toString());
+        MediaPlayer borkPlayer = new MediaPlayer(bork);
         Parent menuRoot = loader.load();
         Scene menuScene = new Scene(menuRoot, WIDTH, HEIGHT);
         String css = this.getClass().getResource("menuStyle.css").toExternalForm();
@@ -37,6 +42,13 @@ public class Main extends Application {
         menuScene.setOnKeyPressed(new EventHandler<KeyEvent>() {
             @Override
             public void handle(KeyEvent event) {
+                if ((event.getCode() == KeyCode.ENTER)||(event.getCode() == KeyCode.SPACE)){
+                    try {
+                        sceneController.detectStartButton(event);
+                    }catch (Exception e){
+                        e.printStackTrace();
+                    }
+                }
                 if ((event.getCode()== KeyCode.D)&&(sceneController.getDogeKeysPressed()==0)){
                     sceneController.dogeKeyIncrement();
                 }
@@ -49,6 +61,7 @@ public class Main extends Application {
                 else if ((event.getCode()== KeyCode.E)&&(sceneController.getDogeKeysPressed()==3)){
                     sceneController.setDogeKeysPressed(0);
                     System.out.println("dog");
+                    borkPlayer.play();
                     dogeMode=true;
                 }
                 else{

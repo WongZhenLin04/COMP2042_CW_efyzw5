@@ -17,6 +17,7 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.media.*;
+import javafx.util.Duration;
 
 import java.io.File;
 import java.util.Scanner;
@@ -25,15 +26,28 @@ public class Main extends Application {
     static final int WIDTH = 1250;
     static final int HEIGHT = 768;
     static boolean dogeMode=false;
-
+    private final String borkFile = "bork.mp3";
+    private final String bgMusic_egg = "bgMusic_egg.mp3";
+    private final String bgMusic_nor="bgMus_normal.mp3";
+    private final Media bgMusicMedia_egg = new Media(new File(bgMusic_egg).toURI().toString());
+    private final Media bork = new Media(new File(borkFile).toURI().toString());
+    private final Media bgMusicMedia_nor = new Media(new File(bgMusic_nor).toURI().toString());
+    private final MediaPlayer bgMusicPlayer_egg = new MediaPlayer(bgMusicMedia_egg);
+    private final MediaPlayer borkPlayer = new MediaPlayer(bork);
+    private final MediaPlayer bgMusicPlayer_nor = new MediaPlayer(bgMusicMedia_nor);
 
     @Override
     public void start(Stage primaryStage) throws Exception {
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("mainMenu.fxml"));
-        String musicFile = "bork.mp3";
-        Media bork = new Media(new File(musicFile).toURI().toString());
-        MediaPlayer borkPlayer = new MediaPlayer(bork);
+        
+        bgMusicPlayer_nor.setOnEndOfMedia(new Runnable() {
+            @Override
+            public void run() {
+                bgMusicPlayer_nor.seek(Duration.ZERO);
+            }
+        });
+        bgMusicPlayer_nor.play();
         Parent menuRoot = loader.load();
         Scene menuScene = new Scene(menuRoot, WIDTH, HEIGHT);
         String css = this.getClass().getResource("menuStyle.css").toExternalForm();
@@ -59,10 +73,18 @@ public class Main extends Application {
                     sceneController.dogeKeyIncrement();
                 }
                 else if ((event.getCode()== KeyCode.E)&&(sceneController.getDogeKeysPressed()==3)){
+                    bgMusicPlayer_nor.stop();
                     sceneController.setDogeKeysPressed(0);
                     System.out.println("dog");
                     borkPlayer.play();
                     dogeMode=true;
+                    bgMusicPlayer_egg.setOnEndOfMedia(new Runnable() {
+                        @Override
+                        public void run() {
+                            bgMusicPlayer_egg.seek(Duration.ZERO);
+                        }
+                    });
+                    bgMusicPlayer_egg.play();
                 }
                 else{
                     sceneController.setDogeKeysPressed(0);

@@ -44,7 +44,7 @@ public class sceneController {
     }
     public void switchFromProfileToGame(){
         setGameRoot(new Group());
-        setGameScene(new Scene(gameRoot, Main.WIDTH, Main.HEIGHT, Color.rgb(189, 177, 92)));
+        setGameScene(new Scene(gameRoot, Main.WIDTH, Main.HEIGHT, Color.rgb(255, 255, 255)));
         GameScene game = new GameScene();
         Group endgameRoot = new Group();
         Scene endGameScene = new Scene(endgameRoot, Main.WIDTH, Main.HEIGHT, Color.rgb(250, 20, 100, 0.2));

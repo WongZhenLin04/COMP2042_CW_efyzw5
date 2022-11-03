@@ -1,23 +1,33 @@
 package com.example.demo;
 
-import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.*;
-import javafx.scene.input.MouseEvent;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
+import java.io.File;
 import java.io.IOException;
 
-public class sceneController {
+abstract public class sceneController {
     private int DogeKeysPressed=0;
-    private Stage primaryStage;
-    private Group gameRoot;
-    private Scene gameScene;
-    private Parent getAccountRoot;
-    private Scene getAccountScene;
-
+    protected Stage primaryStage;
+    protected Group gameRoot;
+    protected Scene gameScene;
+    protected Parent getAccountRoot;
+    protected Scene getAccountScene;
+    protected final FXMLLoader accountLoader = new FXMLLoader(getClass().getResource("accountsScene.fxml"));
+    protected final FXMLLoader modeSelLoader = new FXMLLoader(getClass().getResource("gameModeSelect.fxml"));
+    protected Parent modeRoot;
+    protected Scene modeScene;
+    public void setSetModeRoot(Parent setModeRoot) {
+        this.modeRoot = setModeRoot;
+    }
+    public void setSetModeScene(Scene setModeScene) {
+        this.modeScene = setModeScene;
+    }
     public int getDogeKeysPressed() {
         return DogeKeysPressed;
     }
@@ -42,27 +52,7 @@ public class sceneController {
     public void setPrimaryStage(Stage primaryStage){
         this.primaryStage=primaryStage;
     }
-    public void switchFromProfileToGame(){
-        setGameRoot(new Group());
-        setGameScene(new Scene(gameRoot, Main.WIDTH, Main.HEIGHT, Color.rgb(255, 255, 255)));
-        GameScene game = new GameScene();
-        Group endgameRoot = new Group();
-        Scene endGameScene = new Scene(endgameRoot, Main.WIDTH, Main.HEIGHT, Color.rgb(250, 20, 100, 0.2));
-        game.game(gameScene, gameRoot, primaryStage, endGameScene, endgameRoot);
-        primaryStage.setScene(gameScene);
-    }
-    public void switchFromMenuToProfile() throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("accountsScene.fxml"));
-        setGetAccountRoot(loader.load());
-        setGetAccountScene(new Scene(getAccountRoot, Main.WIDTH, Main.HEIGHT));
-        primaryStage.setScene(getAccountScene);
-    }
-    public void detectStartButton(Event event) throws IOException{
-        primaryStage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        switchFromMenuToProfile();
-    }
-    public void detectAccountChosen(Event event) throws IOException{
-        primaryStage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        switchFromProfileToGame();
-    }
+    public abstract void switchToScene() throws IOException;
+    public abstract void detectEvent(Event event) throws IOException;
+
 }

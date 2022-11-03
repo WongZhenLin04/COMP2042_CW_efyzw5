@@ -2,9 +2,15 @@ package com.example.demo;
 
 
 import javafx.scene.Group;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
+import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
+
+import java.io.File;
+import java.io.FileInputStream;
 
 public class Cell {
     private Rectangle rectangle;
@@ -65,37 +71,103 @@ public class Cell {
                 rectangle.setFill(Color.rgb(224, 226, 226, 0.5));
                 break;
             case 2:
-                rectangle.setFill(Color.rgb(232, 255, 100, 0.5));
+                if(!Main.dogeMode) {
+                    rectangle.setFill(Color.rgb(232, 255, 100, 0.5));
+                }else {
+                    Image doge2 = new Image(new File("2doge.gif").toURI().toString());
+                    ImagePattern doge2View = new ImagePattern(doge2);
+                    rectangle.setFill(doge2View);
+                }
                 break;
             case 4:
-                rectangle.setFill(Color.rgb(232, 220, 50, 0.5));
+                if(!Main.dogeMode) {
+                    rectangle.setFill(Color.rgb(232, 220, 50, 0.5));
+                }else {
+                    Image doge4 = new Image(new File("4doge.gif").toURI().toString());
+                    ImagePattern doge4View = new ImagePattern(doge4);
+                    rectangle.setFill(doge4View);
+                }
                 break;
             case 8:
-                rectangle.setFill(Color.rgb(232, 200, 44, 0.8));
+                if(!Main.dogeMode) {
+                    rectangle.setFill(Color.rgb(232, 200, 44, 0.8));
+                }else {
+                    Image doge8 = new Image(new File("8doge.gif").toURI().toString());
+                    ImagePattern doge8View = new ImagePattern(doge8);
+                    rectangle.setFill(doge8View);
+                }
                 break;
             case 16:
-                rectangle.setFill(Color.rgb(232, 170, 44, 0.8));
+                if(!Main.dogeMode) {
+                    rectangle.setFill(Color.rgb(232, 170, 44, 0.8));
+                }else {
+                    Image doge16 = new Image(new File("16doge.gif").toURI().toString());
+                    ImagePattern doge16View = new ImagePattern(doge16);
+                    rectangle.setFill(doge16View);
+                }
                 break;
             case 32:
-                rectangle.setFill(Color.rgb(180, 120, 44, 0.7));
+                if(!Main.dogeMode) {
+                    rectangle.setFill(Color.rgb(180, 120, 44, 0.7));
+                }else {
+                    Image doge32 = new Image(new File("32doge.gif").toURI().toString());
+                    ImagePattern doge32View = new ImagePattern(doge32);
+                    rectangle.setFill(doge32View);
+                }
                 break;
             case 64:
-                rectangle.setFill(Color.rgb(180, 100, 44, 0.7));
+                if(!Main.dogeMode) {
+                    rectangle.setFill(Color.rgb(180, 100, 44, 0.7));
+                }else {
+                    Image doge64 = new Image(new File("64doge.gif").toURI().toString());
+                    ImagePattern doge64View = new ImagePattern(doge64);
+                    rectangle.setFill(doge64View);
+                }
                 break;
             case 128:
-                rectangle.setFill(Color.rgb(180, 80, 44, 0.7));
+                if(!Main.dogeMode) {
+                    rectangle.setFill(Color.rgb(180, 80, 44, 0.7));
+                }else {
+                    Image doge128 = new Image(new File("128doge.gif").toURI().toString());
+                    ImagePattern doge128View = new ImagePattern(doge128);
+                    rectangle.setFill(doge128View);
+                }
                 break;
             case 256:
-                rectangle.setFill(Color.rgb(180, 60, 44, 0.8));
+                if(!Main.dogeMode) {
+                    rectangle.setFill(Color.rgb(180, 60, 44, 0.8));
+                }else {
+                    Image doge256 = new Image(new File("256doge.gif").toURI().toString());
+                    ImagePattern doge256View = new ImagePattern(doge256);
+                    rectangle.setFill(doge256View);
+                }
                 break;
             case 512:
-                rectangle.setFill(Color.rgb(180, 30, 44, 0.8));
+                if(!Main.dogeMode) {
+                    rectangle.setFill(Color.rgb(180, 30, 44, 0.8));
+                }else {
+                    Image doge512 = new Image(new File("512doge.gif").toURI().toString());
+                    ImagePattern doge512View = new ImagePattern(doge512);
+                    rectangle.setFill(doge512View);
+                }
                 break;
             case 1024:
-                rectangle.setFill(Color.rgb(250, 0, 44, 0.8));
+                if(!Main.dogeMode) {
+                    rectangle.setFill(Color.rgb(250, 0, 44, 0.8));
+                }else {
+                    Image doge1024 = new Image(new File("1024doge.gif").toURI().toString());
+                    ImagePattern doge1024View = new ImagePattern(doge1024);
+                    rectangle.setFill(doge1024View);
+                }
                 break;
             case 2048:
-                rectangle.setFill(Color.rgb(250,0,0,1));
+                if(!Main.dogeMode) {
+                    rectangle.setFill(Color.rgb(250,0,0,1));
+                }else {
+                    Image doge2048 = new Image(new File("2048doge.gif").toURI().toString());
+                    ImagePattern doge2048View = new ImagePattern(doge2048);
+                    rectangle.setFill(doge2048View);
+                }
 
 
         }

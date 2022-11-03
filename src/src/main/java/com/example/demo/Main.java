@@ -35,12 +35,12 @@ public class Main extends Application {
     private final MediaPlayer bgMusicPlayer_egg = new MediaPlayer(bgMusicMedia_egg);
     private final MediaPlayer borkPlayer = new MediaPlayer(bork);
     private final MediaPlayer bgMusicPlayer_nor = new MediaPlayer(bgMusicMedia_nor);
+    private final FXMLLoader loader = new FXMLLoader(getClass().getResource("mainMenu.fxml"));
+    private final mainMenuController menuScene1 = new mainMenuController();
 
     @Override
     public void start(Stage primaryStage) throws Exception {
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("mainMenu.fxml"));
-        
         bgMusicPlayer_nor.setOnEndOfMedia(new Runnable() {
             @Override
             public void run() {
@@ -51,14 +51,14 @@ public class Main extends Application {
         Parent menuRoot = loader.load();
         Scene menuScene = new Scene(menuRoot, WIDTH, HEIGHT);
         String css = this.getClass().getResource("menuStyle.css").toExternalForm();
-        sceneController sceneController = loader.getController();
+        mainMenuController sceneController = loader.getController();
         menuScene.getStylesheets().add(css);
         menuScene.setOnKeyPressed(new EventHandler<KeyEvent>() {
             @Override
             public void handle(KeyEvent event) {
                 if ((event.getCode() == KeyCode.ENTER)||(event.getCode() == KeyCode.SPACE)){
                     try {
-                        sceneController.detectStartButton(event);
+                        sceneController.detectEvent(event);
                     }catch (Exception e){
                         e.printStackTrace();
                     }
@@ -75,7 +75,6 @@ public class Main extends Application {
                 else if ((event.getCode()== KeyCode.E)&&(sceneController.getDogeKeysPressed()==3)){
                     bgMusicPlayer_nor.stop();
                     sceneController.setDogeKeysPressed(0);
-                    System.out.println("dog");
                     borkPlayer.play();
                     dogeMode=true;
                     bgMusicPlayer_egg.setOnEndOfMedia(new Runnable() {
@@ -92,28 +91,7 @@ public class Main extends Application {
             }
         });
 
-        /*
-        Group accountRoot = new Group();
-        Scene accountScene = new Scene(accountRoot, WIDTH, HEIGHT, Color.rgb(150, 20, 100, 0.2));
-        Group getAccountRoot = new Group();
-        Scene getAccountScene = new Scene(getAccountRoot, WIDTH, HEIGHT, Color.rgb(200, 20, 100, 0.2));
-        Group endgameRoot = new Group();
-        Scene endGameScene = new Scene(endgameRoot, WIDTH, HEIGHT, Color.rgb(250, 20, 100, 0.2));
-        Group rankRoot = new Group();
-        Scene rankScene = new Scene(rankRoot, WIDTH, HEIGHT, Color.rgb(250, 50, 120, 0.3));
-        BackgroundFill background_fill = new BackgroundFill(Color.rgb(120, 100, 100), CornerRadii.EMPTY, Insets.EMPTY);
-        Background background = new Background(background_fill);
-        */
-
-        /*
-        Rectangle backgroundOfMenuForPlay = new Rectangle(240, 140, Color.rgb(120, 20, 100, 0.2));
-        backgroundOfMenuForPlay.setX(WIDTH / 2 - 120);
-        backgroundOfMenuForPlay.setY(180);
-        accountRoot.getChildren().add(backgroundOfMenuForPlay);
-        */
-
         primaryStage.setScene(menuScene);
-        sceneController menuScene1 = new sceneController();
         menuScene1.setPrimaryStage(primaryStage);
         primaryStage.show();
     }

@@ -22,7 +22,7 @@ public class modeSelectSceneController extends sceneController implements Initia
 
     @FXML
     private ChoiceBox<String> modeSelectBox;
-    private final String[] dimensions = {"4x4","5x5","6x6"};
+    private final String[] dimensions = {"3x3","4x4","5x5"};
 
     @Override
     public void switchToScene() throws IOException {
@@ -59,8 +59,8 @@ public class modeSelectSceneController extends sceneController implements Initia
                 GameScene.setN(5);
                 break;
             }
-            case "6x6":{
-                GameScene.setN(6);
+            case "3x3":{
+                GameScene.setN(3);
                 break;
             }
             default:GameScene.setN(4);

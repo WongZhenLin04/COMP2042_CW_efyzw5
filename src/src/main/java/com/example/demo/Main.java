@@ -73,6 +73,7 @@ public class Main extends Application {
                     sceneController.dogeKeyIncrement();
                 }
                 else if ((event.getCode()== KeyCode.E)&&(sceneController.getDogeKeysPressed()==3)){
+                    menuScene1.switchToSpecialMenu();
                     bgMusicPlayer_nor.stop();
                     sceneController.setDogeKeysPressed(0);
                     borkPlayer.play();

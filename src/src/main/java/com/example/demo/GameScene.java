@@ -10,7 +10,6 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-
 import java.util.Random;
 
 class GameScene {
@@ -23,6 +22,7 @@ class GameScene {
     private Group root;
     private long score = 0;
     private int haveEmptyCell;
+    private scoreBoard scoreBoard = new scoreBoard();
 
     static void setN(int number) {
         n = number;
@@ -341,15 +341,9 @@ class GameScene {
         }
 
         Text text = new Text();
-        root.getChildren().add(text);
-        text.setText("SCORE :");
-        text.setFont(Font.font(30));
-        text.relocate(850, 100);
+        scoreBoard.addScoreBoard(root,text);
         Text scoreText = new Text();
-        root.getChildren().add(scoreText);
-        scoreText.relocate(900, 200);
-        scoreText.setFont(Font.font(20));
-        scoreText.setText("0");
+        scoreBoard.initializeScore(root,scoreText);
 
         randomFillNumber(1);
         randomFillNumber(1);

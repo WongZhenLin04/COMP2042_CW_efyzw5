@@ -29,6 +29,8 @@ public class mainMenuController extends sceneController{
         try {
             Parent specialMenuRoot = specialMenuLoader.load();
             Scene specialMenuScene = new Scene(specialMenuRoot, Main.WIDTH, Main.HEIGHT);
+            String css = this.getClass().getResource("menuStyle.css").toExternalForm();
+            specialMenuScene.getStylesheets().add(css);
             primaryStage.setScene(specialMenuScene);
         }catch (Exception e){
             e.printStackTrace();

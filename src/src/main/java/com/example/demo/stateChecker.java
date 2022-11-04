@@ -1,5 +1,7 @@
 package com.example.demo;
 
+import static com.example.demo.GameScene.n;
+
 public class stateChecker {
     public int haveEmptyCell(Cell[][] cells,int n) {
         for (int i = 0; i < n; i++) {
@@ -63,5 +65,23 @@ public class stateChecker {
             }
             default:{return true;}
         }
+    }
+    public boolean canNotMove(Cell[][] cells) {
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                if (haveSameNumberNearly(cells,i, j)) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+    public boolean haveSameNumberNearly(Cell[][] cells,int i, int j) {
+        if (i < n - 1 && j < n - 1) {
+            if (cells[i + 1][j].getNumber() == cells[i][j].getNumber())
+                return true;
+            return cells[i][j + 1].getNumber() == cells[i][j].getNumber();
+        }
+        return false;
     }
 }

@@ -6,7 +6,6 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
-import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import java.util.Random;
@@ -22,8 +21,7 @@ class GameScene {
     private int haveEmptyCell;
     private final scoreBoard scoreBoard = new scoreBoard();
     private final stateChecker stateChecker = new stateChecker();
-    private final tileChecker tileChecker = new tileChecker();
-    private movement movement = new movement();
+    private final tileMovement movement = new tileMovement();
     static void setN(int number) {
         n = number;
         LENGTH = (HEIGHT - ((n + 1) * distanceBetweenCells)) / (double) n;
@@ -31,7 +29,7 @@ class GameScene {
     static double getLENGTH() {
         return LENGTH;
     }
-    private void randomFillNumber(int turn) {
+    private void randomFillNumber() {
         Cell[][] emptyCells = new Cell[n][n];
         int a = 0;
         int b = 0;
@@ -73,86 +71,6 @@ class GameScene {
             emptyCells[xCell][yCell].setColorByNumber(4);
         }
     }
-    private void moveLeft() {
-        for (int i = 0; i < n; i++) {
-            for (int j = 1; j < n; j++) {
-                moveHorizontally(i, j, tileChecker.passDestination(cells,i, j, 'l'), -1);
-            }
-            for (int j = 0; j < n; j++) {
-                cells[i][j].setModify(false);
-            }
-        }
-    }
-    private void moveRight() {
-        for (int i = 0; i < n; i++) {
-            for (int j = n - 1; j >= 0; j--) {
-                moveHorizontally(i, j, tileChecker.passDestination(cells,i, j, 'r'), 1);
-            }
-            for (int j = 0; j < n; j++) {
-                cells[i][j].setModify(false);
-            }
-        }
-    }
-    private void moveUp() {
-        for (int j = 0; j < n; j++) {
-            for (int i = 1; i < n; i++) {
-                moveVertically(i, j, tileChecker.passDestination(cells,i, j, 'u'), -1);
-            }
-            for (int i = 0; i < n; i++) {
-                cells[i][j].setModify(false);
-            }
-        }
-
-    }
-    private void moveDown() {
-        for (int j = 0; j < n; j++) {
-            for (int i = n - 1; i >= 0; i--) {
-                moveVertically(i, j, tileChecker.passDestination(cells,i, j, 'd'), 1);
-            }
-            for (int i = 0; i < n; i++) {
-                cells[i][j].setModify(false);
-            }
-        }
-
-    }
-    private void moveHorizontally(int i, int j, int des, int sign) {
-        if (tileChecker.isValidDesH(cells,i, j, des, sign)) {
-            score=movement.sumCellNumbersToScore(cells,score);
-            cells[i][j].adder(cells[i][des + sign]);
-            cells[i][des].setModify(true);
-
-        } else if (des != j) {
-            cells[i][j].changeCell(cells[i][des]);
-        }
-    }
-    private void moveVertically(int i, int j, int des, int sign) {
-        if (tileChecker.isValidDesV(cells,i, j, des, sign)) {
-            score=movement.sumCellNumbersToScore(cells,score);
-            cells[i][j].adder(cells[des + sign][j]);
-            cells[des][j].setModify(true);
-        } else if (des != i) {
-            haveEmptyCell = stateChecker.haveEmptyCell(cells,n);
-            cells[i][j].changeCell(cells[des][j]);
-        }
-    }
-    private boolean haveSameNumberNearly(int i, int j) {
-        if (i < n - 1 && j < n - 1) {
-            if (cells[i + 1][j].getNumber() == cells[i][j].getNumber())
-                return true;
-            return cells[i][j + 1].getNumber() == cells[i][j].getNumber();
-        }
-        return false;
-    }
-    private boolean canNotMove() {
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < n; j++) {
-                if (haveSameNumberNearly(i, j)) {
-                    return false;
-                }
-            }
-        }
-        return true;
-    }
     private void makeBgRekt(Group root){
         Rectangle bgrekt = new Rectangle();
         bgrekt.setFill(Color.rgb(186, 186, 186));
@@ -178,44 +96,45 @@ class GameScene {
         scoreBoard.addScoreBoard(root,text);
         Text scoreText = new Text();
         scoreBoard.initializeScore(root,scoreText);
-        randomFillNumber(1);
-        randomFillNumber(1);
+        randomFillNumber();
+        randomFillNumber();
         gameScene.addEventHandler(KeyEvent.KEY_PRESSED, key ->{
                 Platform.runLater(() -> {
                     movement.setScore(score);
                     if (key.getCode() == KeyCode.DOWN) {
                         if(!stateChecker.isStaticMove(cells,'d',n)) {
-                            GameScene.this.moveDown();
+                            movement.moveDown(cells);
                             if(stateChecker.haveEmptyCell(cells,n)==1){
-                                GameScene.this.randomFillNumber(2);
+                                GameScene.this.randomFillNumber();
                             }
                         }
                     } else if (key.getCode() == KeyCode.UP) {
                         if(!stateChecker.isStaticMove(cells,'u',n)) {
-                            GameScene.this.moveUp();
+                            movement.moveUp(cells);
                             if(stateChecker.haveEmptyCell(cells,n)==1){
-                                GameScene.this.randomFillNumber(2);
+                                GameScene.this.randomFillNumber();
                             }
                         }
                     } else if (key.getCode() == KeyCode.LEFT) {
                         if(!stateChecker.isStaticMove(cells,'l',n)) {
-                            GameScene.this.moveLeft();
+                            movement.moveLeft(cells);
                             if(stateChecker.haveEmptyCell(cells,n)==1){
-                                GameScene.this.randomFillNumber(2);
+                                GameScene.this.randomFillNumber();
                             }
                         }
                     } else if (key.getCode() == KeyCode.RIGHT) {
                         if(!stateChecker.isStaticMove(cells,'r',n)) {
-                            GameScene.this.moveRight();
+                            movement.moveRight(cells);
                             if(stateChecker.haveEmptyCell(cells,n)==1){
-                                GameScene.this.randomFillNumber(2);
+                                GameScene.this.randomFillNumber();
                             }
                         }
                     }
+                    score=movement.getScore();
                     scoreText.setText(score + "");
                     haveEmptyCell = stateChecker.haveEmptyCell(cells,n);
                     if (haveEmptyCell == -1) {
-                        if (GameScene.this.canNotMove()) {
+                        if (stateChecker.canNotMove(cells)) {
                             primaryStage.setScene(endGameScene);
 
                             EndGame.getInstance().endGameShow(endGameScene, endGameRoot, primaryStage, score);
@@ -224,7 +143,6 @@ class GameScene {
                         }
                     }
                 });
-                score=movement.getScore();
             });
     }
 }

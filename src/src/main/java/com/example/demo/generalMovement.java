@@ -2,16 +2,16 @@ package com.example.demo;
 
 import static com.example.demo.GameScene.n;
 
-public class movement {
+public class generalMovement {
     private long score;
-    private final tileChecker tileChecker = new tileChecker();
+    protected final tileChecker tileChecker = new tileChecker();
     public long getScore() {
         return score;
     }
     public void setScore(long score) {
         this.score = score;
     }
-    private void moveHorizontally(Cell[][] cells,int i, int j, int des, int sign) {
+    public void moveHorizontally(Cell[][] cells,int i, int j, int des, int sign) {
         if (tileChecker.isValidDesH(cells,i, j, des, sign)) {
             score=sumCellNumbersToScore(cells,score);
             cells[i][j].adder(cells[i][des + sign]);
@@ -21,7 +21,7 @@ public class movement {
             cells[i][j].changeCell(cells[i][des]);
         }
     }
-    private void moveVertically(Cell[][] cells,int i, int j, int des, int sign) {
+    public void moveVertically(Cell[][] cells,int i, int j, int des, int sign) {
         if (tileChecker.isValidDesV(cells,i, j, des, sign)) {
             score=sumCellNumbersToScore(cells,score);
             cells[i][j].adder(cells[des + sign][j]);

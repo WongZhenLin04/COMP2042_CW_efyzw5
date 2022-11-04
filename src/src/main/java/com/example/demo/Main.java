@@ -37,7 +37,6 @@ public class Main extends Application {
     private final MediaPlayer bgMusicPlayer_nor = new MediaPlayer(bgMusicMedia_nor);
     private final FXMLLoader loader = new FXMLLoader(getClass().getResource("mainMenu.fxml"));
     private final mainMenuController menuScene1 = new mainMenuController();
-
     @Override
     public void start(Stage primaryStage) throws Exception {
 

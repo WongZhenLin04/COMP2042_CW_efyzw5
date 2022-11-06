@@ -18,7 +18,6 @@ import javafx.stage.Stage;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.media.*;
 import javafx.util.Duration;
-
 import java.io.File;
 import java.util.Scanner;
 
@@ -26,9 +25,9 @@ public class Main extends Application {
     static final int WIDTH = 1250;
     static final int HEIGHT = 768;
     static boolean dogeMode=false;
-    private final String borkFile = "bork.mp3";
-    private final String bgMusic_egg = "bgMusic_egg.mp3";
-    private final String bgMusic_nor="bgMus_normal.mp3";
+    private final String borkFile = "COMP2042_CW_efyzw5\\src\\src\\main\\resources\\com\\example\\demo\\bork.mp3";
+    private final String bgMusic_egg = "COMP2042_CW_efyzw5\\src\\src\\main\\resources\\com\\example\\demo\\bgMusic_egg.mp3";
+    private final String bgMusic_nor="COMP2042_CW_efyzw5\\src\\src\\main\\resources\\com\\example\\demo\\bgMus_normal.mp3";
     private final Media bgMusicMedia_egg = new Media(new File(bgMusic_egg).toURI().toString());
     private final Media bork = new Media(new File(borkFile).toURI().toString());
     private final Media bgMusicMedia_nor = new Media(new File(bgMusic_nor).toURI().toString());

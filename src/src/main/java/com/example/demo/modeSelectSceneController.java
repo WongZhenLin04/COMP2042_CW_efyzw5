@@ -26,7 +26,7 @@ public class modeSelectSceneController extends sceneController implements Initia
 
     @Override
     public void switchToScene() throws IOException {
-        Image Bg = new Image(new File("back_nor.jpg").toURI().toString());
+        Image Bg = new Image(new File("COMP2042_CW_efyzw5\\src\\src\\main\\resources\\com\\example\\demo\\back_nor.jpg").toURI().toString());
         ImageView pat = new ImageView(Bg);
         setGameRoot(new Group(pat));
         setGameScene(new Scene(gameRoot, Main.WIDTH, Main.HEIGHT, Color.rgb(240, 240, 240)));

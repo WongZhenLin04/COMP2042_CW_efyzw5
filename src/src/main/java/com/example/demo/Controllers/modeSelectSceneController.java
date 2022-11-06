@@ -1,6 +1,5 @@
 package com.example.demo.Controllers;
-import com.example.demo.Controllers.sceneController;
-import com.example.demo.GameScene;
+import com.example.demo.gameElements.GameScene;
 import com.example.demo.Main;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
@@ -14,7 +13,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
-import static com.example.demo.GameScene.*;
+
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;

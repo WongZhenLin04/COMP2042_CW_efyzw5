@@ -1,9 +1,11 @@
-package com.example.demo;
+package com.example.demo.gameElements.Utilities;
 
-import static com.example.demo.GameScene.n;
+import com.example.demo.gameElements.Cell;
 
+import static com.example.demo.gameElements.GameScene.*;
 public class tileChecker{
-    public int passDestination(Cell[][] cells,int i, int j, char direct) {
+    private int n = getN();
+    public int passDestination(Cell[][] cells, int i, int j, char direct) {
         int coordinate = j;
         if (direct == 'l') {
             for (int k = j - 1; k >= 0; k--) {

@@ -7,4 +7,8 @@ module com.example.demo {
     exports com.example.demo;
     exports com.example.demo.Controllers;
     opens com.example.demo.Controllers to javafx.fxml;
+    exports com.example.demo.gameElements;
+    opens com.example.demo.gameElements to javafx.fxml;
+    exports com.example.demo.gameElements.Utilities;
+    opens com.example.demo.gameElements.Utilities to javafx.fxml;
 }

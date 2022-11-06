@@ -1,17 +1,20 @@
-package com.example.demo;
+package com.example.demo.gameElements.Utilities;
 
-import static com.example.demo.GameScene.n;
+import com.example.demo.gameElements.Cell;
+import com.example.demo.gameElements.GameScene;
+
 
 public class generalMovement {
     private long score;
-    protected final tileChecker tileChecker = new tileChecker();
+    private int n = GameScene.getN();
+    protected final com.example.demo.gameElements.Utilities.tileChecker tileChecker = new tileChecker();
     public long getScore() {
         return score;
     }
     public void setScore(long score) {
         this.score = score;
     }
-    public void moveHorizontally(Cell[][] cells,int i, int j, int des, int sign) {
+    public void moveHorizontally(Cell[][] cells, int i, int j, int des, int sign) {
         if (tileChecker.isValidDesH(cells,i, j, des, sign)) {
             score=sumCellNumbersToScore(cells,score);
             cells[i][j].adder(cells[i][des + sign]);

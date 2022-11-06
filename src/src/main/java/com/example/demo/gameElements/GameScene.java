@@ -1,4 +1,8 @@
-package com.example.demo;
+package com.example.demo.gameElements;
+import com.example.demo.EndGame;
+import com.example.demo.Main;
+import com.example.demo.gameElements.Utilities.stateChecker;
+import com.example.demo.gameElements.Utilities.tileMovement;
 import javafx.application.Platform;
 import javafx.scene.Group;
 import javafx.scene.Scene;
@@ -19,14 +23,17 @@ public class GameScene {
     private Group root;
     private long score = 0;
     private int haveEmptyCell;
-    private final scoreBoard scoreBoard = new scoreBoard();
-    private final stateChecker stateChecker = new stateChecker();
+    private final com.example.demo.gameElements.scoreBoard scoreBoard = new scoreBoard();
+    private final com.example.demo.gameElements.Utilities.stateChecker stateChecker = new stateChecker();
     private final tileMovement movement = new tileMovement();
+    public static int getN() {
+        return n;
+    }
     public static void setN(int number) {
         n = number;
         LENGTH = (HEIGHT - ((n + 1) * distanceBetweenCells)) / (double) n;
     }
-    static double getLENGTH() {
+    public static double getLENGTH() {
         return LENGTH;
     }
     private void randomFillNumber() {

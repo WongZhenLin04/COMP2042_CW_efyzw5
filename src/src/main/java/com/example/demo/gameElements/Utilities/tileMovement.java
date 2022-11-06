@@ -1,8 +1,11 @@
-package com.example.demo;
+package com.example.demo.gameElements.Utilities;
 
-import static com.example.demo.GameScene.n;
+import com.example.demo.gameElements.Cell;
+import com.example.demo.gameElements.GameScene;
+import com.example.demo.gameElements.Utilities.generalMovement;
 
-public class tileMovement extends generalMovement{
+public class tileMovement extends generalMovement {
+    private int n = GameScene.getN();
     public void moveLeft(Cell[][] cells) {
         for (int i = 0; i < n; i++) {
             for (int j = 1; j < n; j++) {

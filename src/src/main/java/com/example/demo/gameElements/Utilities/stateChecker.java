@@ -1,9 +1,11 @@
-package com.example.demo;
+package com.example.demo.gameElements.Utilities;
 
-import static com.example.demo.GameScene.n;
+import com.example.demo.gameElements.Cell;
+import com.example.demo.gameElements.GameScene;
 
 public class stateChecker {
-    public int haveEmptyCell(Cell[][] cells,int n) {
+    private int n = GameScene.getN();
+    public int haveEmptyCell(Cell[][] cells, int n) {
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
                 if (cells[i][j].getNumber() == 0)

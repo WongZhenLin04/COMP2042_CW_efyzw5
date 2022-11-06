@@ -16,7 +16,7 @@ import java.io.File;
 public class Main extends Application {
     public static final int WIDTH = 1250;
     public static final int HEIGHT = 768;
-    static boolean dogeMode=false;
+    private static boolean dogeMode=false;
     private final String borkFile = "COMP2042_CW_efyzw5\\src\\src\\main\\resources\\com\\example\\demo\\bork.mp3";
     private final String bgMusic_egg = "COMP2042_CW_efyzw5\\src\\src\\main\\resources\\com\\example\\demo\\bgMusic_egg.mp3";
     private final String bgMusic_nor="COMP2042_CW_efyzw5\\src\\src\\main\\resources\\com\\example\\demo\\bgMus_normal.mp3";
@@ -28,6 +28,9 @@ public class Main extends Application {
     private final MediaPlayer bgMusicPlayer_nor = new MediaPlayer(bgMusicMedia_nor);
     private final FXMLLoader loader = new FXMLLoader(getClass().getResource("Controllers/FXMLFiles/mainMenu.fxml"));
     private final mainMenuController menuScene1 = new mainMenuController();
+    public static boolean isDogeMode() {
+        return dogeMode;
+    }
     @Override
     public void start(Stage primaryStage) throws Exception {
 

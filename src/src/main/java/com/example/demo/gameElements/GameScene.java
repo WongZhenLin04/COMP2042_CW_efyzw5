@@ -1,6 +1,5 @@
 package com.example.demo.gameElements;
-import com.example.demo.EndGame;
-import com.example.demo.Main;
+import com.example.demo.endGameElements.EndGame;
 import com.example.demo.gameElements.Utilities.stateChecker;
 import com.example.demo.gameElements.Utilities.tileMovement;
 import javafx.application.Platform;
@@ -8,8 +7,6 @@ import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import java.util.Random;
@@ -23,7 +20,7 @@ public class GameScene {
     private Group root;
     private long score = 0;
     private int haveEmptyCell;
-    private final com.example.demo.gameElements.scoreBoard scoreBoard = new scoreBoard();
+    private final gameVisuals gameVisuals = new gameVisuals();
     private final com.example.demo.gameElements.Utilities.stateChecker stateChecker = new stateChecker();
     private final tileMovement movement = new tileMovement();
     public static int getN() {
@@ -78,19 +75,10 @@ public class GameScene {
             emptyCells[xCell][yCell].setColorByNumber(4);
         }
     }
-    private void makeBgRekt(Group root){
-        Rectangle bgrekt = new Rectangle();
-        bgrekt.setFill(Color.rgb(186, 186, 186));
-        bgrekt.setHeight(Main.HEIGHT-40);
-        bgrekt.setWidth(Main.WIDTH-500);
-        root.getChildren().add(bgrekt);
-        bgrekt.setX(-25);
-        bgrekt.setY(-15);
-    }
     public void game(Scene gameScene, Group root, Stage primaryStage, Scene endGameScene, Group endGameRoot) {
         root.setLayoutX(150.0);
         root.setLayoutY(25);
-        makeBgRekt(root);
+        gameVisuals.makeBgRekt(root);
         this.root = root;
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
@@ -100,9 +88,9 @@ public class GameScene {
 
         }
         Text text = new Text();
-        scoreBoard.addScoreBoard(root,text);
+        gameVisuals.addScoreBoard(root,text);
         Text scoreText = new Text();
-        scoreBoard.initializeScore(root,scoreText);
+        gameVisuals.initializeScore(root,scoreText);
         randomFillNumber();
         randomFillNumber();
         gameScene.addEventHandler(KeyEvent.KEY_PRESSED, key ->{
@@ -144,7 +132,7 @@ public class GameScene {
                         if (stateChecker.canNotMove(cells)) {
                             primaryStage.setScene(endGameScene);
 
-                            EndGame.getInstance().endGameShow(endGameScene, endGameRoot, primaryStage, score);
+                            EndGame.getInstance().endGameShowLose(endGameRoot, score);
                             root.getChildren().clear();
                             score = 0;
                         }

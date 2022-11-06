@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.demo.endGameElements;
 
 import javafx.event.EventHandler;
 import javafx.scene.Group;
@@ -19,6 +19,7 @@ import java.util.Scanner;
 
 public class EndGame {
     private long score;
+    private endGameVisuals endGameVisuals = new endGameVisuals();
     private static EndGame singleInstance = null;
     private EndGame(){
 
@@ -30,7 +31,7 @@ public class EndGame {
     }
     public String getHighscore(){
         try {
-            File scoreFile = new File("highScore.txt");
+            File scoreFile = new File("COMP2042_CW_efyzw5\\src\\src\\main\\resources\\com\\example\\demo\\highScore.txt");
             Scanner reader = new Scanner(scoreFile);
             return reader.nextLine();
         }catch (FileNotFoundException e){
@@ -41,27 +42,13 @@ public class EndGame {
     public boolean newHighscore(){
         return Integer.parseInt(getHighscore()) < (score);
     }
-    public void endGameShow(Scene endGameScene, Group root, Stage primaryStage,long score){
+    public void endGameShowLose(Group root, long score){
         this.score=score;
         System.out.println(newHighscore());
-        Text text = new Text("GAME OVER");
-        text.relocate(250,250);
-        text.setFont(Font.font(80));
-        root.getChildren().add(text);
-
-
-        Text scoreText = new Text(score+"");
-        scoreText.setFill(Color.BLACK);
-        scoreText.relocate(250,600);
-        scoreText.setFont(Font.font(80));
-        root.getChildren().add(scoreText);
-
-        Button quitButton = new Button("QUIT");
-        quitButton.setPrefSize(100,30);
-        quitButton.setTextFill(Color.PINK);
-        root.getChildren().add(quitButton);
-        quitButton.relocate(100,300);
-        quitButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
+        endGameVisuals.setEndTitle(root);
+        endGameVisuals.setEndScore(root,score);
+        endGameVisuals.setEndButton(root);
+        endGameVisuals.getQuitButton().setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
                 Alert alert = new Alert(Alert.AlertType.CONFIRMATION);

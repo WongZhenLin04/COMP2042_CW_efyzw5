@@ -1,29 +1,21 @@
 package com.example.demo;
 
+import com.example.demo.Controllers.mainMenuController;
 import javafx.application.Application;
-import javafx.event.ActionEvent;
-import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
-import javafx.geometry.Insets;
-import javafx.scene.Group;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
-import javafx.scene.layout.*;
-import javafx.scene.paint.Color;
 import javafx.stage.Stage;
-import javafx.scene.shape.Rectangle;
 import javafx.scene.media.*;
 import javafx.util.Duration;
 import java.io.File;
-import java.util.Scanner;
 
 public class Main extends Application {
-    static final int WIDTH = 1250;
-    static final int HEIGHT = 768;
+    public static final int WIDTH = 1250;
+    public static final int HEIGHT = 768;
     static boolean dogeMode=false;
     private final String borkFile = "COMP2042_CW_efyzw5\\src\\src\\main\\resources\\com\\example\\demo\\bork.mp3";
     private final String bgMusic_egg = "COMP2042_CW_efyzw5\\src\\src\\main\\resources\\com\\example\\demo\\bgMusic_egg.mp3";
@@ -34,7 +26,7 @@ public class Main extends Application {
     private final MediaPlayer bgMusicPlayer_egg = new MediaPlayer(bgMusicMedia_egg);
     private final MediaPlayer borkPlayer = new MediaPlayer(bork);
     private final MediaPlayer bgMusicPlayer_nor = new MediaPlayer(bgMusicMedia_nor);
-    private final FXMLLoader loader = new FXMLLoader(getClass().getResource("mainMenu.fxml"));
+    private final FXMLLoader loader = new FXMLLoader(getClass().getResource("Controllers/FXMLFiles/mainMenu.fxml"));
     private final mainMenuController menuScene1 = new mainMenuController();
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -48,7 +40,7 @@ public class Main extends Application {
         bgMusicPlayer_nor.play();
         Parent menuRoot = loader.load();
         Scene menuScene = new Scene(menuRoot, WIDTH, HEIGHT);
-        String css = this.getClass().getResource("menuStyle.css").toExternalForm();
+        String css = this.getClass().getResource("Controllers/FXMLFiles/menuStyle.css").toExternalForm();
         mainMenuController sceneController = loader.getController();
         menuScene.getStylesheets().add(css);
         menuScene.setOnKeyPressed(new EventHandler<KeyEvent>() {

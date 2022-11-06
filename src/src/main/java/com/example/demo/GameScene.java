@@ -9,7 +9,7 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import java.util.Random;
-class GameScene {
+public class GameScene {
     private static final int HEIGHT = 700;
     protected static int n = 4;
     private final static int distanceBetweenCells = 10;
@@ -22,7 +22,7 @@ class GameScene {
     private final scoreBoard scoreBoard = new scoreBoard();
     private final stateChecker stateChecker = new stateChecker();
     private final tileMovement movement = new tileMovement();
-    static void setN(int number) {
+    public static void setN(int number) {
         n = number;
         LENGTH = (HEIGHT - ((n + 1) * distanceBetweenCells)) / (double) n;
     }
@@ -80,7 +80,7 @@ class GameScene {
         bgrekt.setX(-25);
         bgrekt.setY(-15);
     }
-    void game(Scene gameScene, Group root, Stage primaryStage, Scene endGameScene, Group endGameRoot) {
+    public void game(Scene gameScene, Group root, Stage primaryStage, Scene endGameScene, Group endGameRoot) {
         root.setLayoutX(150.0);
         root.setLayoutY(25);
         makeBgRekt(root);

@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.demo.Controllers;
 
 import javafx.event.Event;
 import javafx.fxml.FXMLLoader;
@@ -18,8 +18,8 @@ abstract public class sceneController {
     protected Scene gameScene;
     protected Parent getAccountRoot;
     protected Scene getAccountScene;
-    protected final FXMLLoader accountLoader = new FXMLLoader(getClass().getResource("accountsScene.fxml"));
-    protected final FXMLLoader modeSelLoader = new FXMLLoader(getClass().getResource("gameModeSelect.fxml"));
+    protected final FXMLLoader accountLoader = new FXMLLoader(getClass().getResource("FXMLFiles/accountsScene.fxml"));
+    protected final FXMLLoader modeSelLoader = new FXMLLoader(getClass().getResource("FXMLFiles/gameModeSelect.fxml"));
     protected Parent modeRoot;
     protected Scene modeScene;
     public void setSetModeRoot(Parent setModeRoot) {

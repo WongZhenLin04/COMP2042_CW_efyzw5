@@ -11,8 +11,9 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-
+import static com.example.demo.Controllers.getProfileSceneController.*;
 import java.io.*;
+import java.util.Arrays;
 import java.util.Optional;
 import java.util.Scanner;
 
@@ -21,8 +22,8 @@ public class EndGame {
     private long score;
     private endGameVisuals endGameVisuals = new endGameVisuals();
     private static EndGame singleInstance = null;
+    private final String pathToScore="COMP2042_CW_efyzw5\\src\\src\\main\\resources\\com\\example\\demo\\highScore.txt";
     private EndGame(){
-
     }
     public static EndGame getInstance(){
         if(singleInstance == null)
@@ -31,9 +32,9 @@ public class EndGame {
     }
     public String getHighscore(){
         try {
-            File scoreFile = new File("COMP2042_CW_efyzw5\\src\\src\\main\\resources\\com\\example\\demo\\highScore.txt");
+            File scoreFile = new File(pathToScore);
             Scanner reader = new Scanner(scoreFile);
-            return reader.nextLine();
+            return reader.nextLine().split(":", 0)[1];
         }catch (FileNotFoundException e){
             e.printStackTrace();
             return "0";
@@ -42,9 +43,20 @@ public class EndGame {
     public boolean newHighscore(){
         return Integer.parseInt(getHighscore()) < (score);
     }
+    public void writeHighScore(){
+        try {
+            FileWriter writer = new FileWriter(pathToScore);
+            writer.write(getAccountName()+":"+score);
+            writer.close();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
     public void endGameShowLose(Group root, long score){
         this.score=score;
-        System.out.println(newHighscore());
+        if(newHighscore()){
+            writeHighScore();
+        }
         endGameVisuals.setEndTitle(root);
         endGameVisuals.setEndScore(root,score);
         endGameVisuals.setEndButton(root);
@@ -62,8 +74,5 @@ public class EndGame {
                 }
             }
         });
-
-
-
     }
 }

@@ -9,6 +9,6 @@
    <children>
       <Label alignment="CENTER" layoutX="421.0" layoutY="87.0" prefHeight="153.0" prefWidth="429.0" text="Accounts" />
       <Button layoutX="555.0" layoutY="396.0" mnemonicParsing="false" onMouseClicked="#detectEvent" prefHeight="82.0" prefWidth="161.0" text="Button" />
-      <ChoiceBox layoutX="560.0" layoutY="267.0" prefWidth="150.0" />
+      <ChoiceBox fx:id="accountSelect" layoutX="560.0" layoutY="267.0" prefWidth="150.0" />
    </children>
 </AnchorPane>

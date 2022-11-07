@@ -33,7 +33,6 @@ public class Main extends Application {
     }
     @Override
     public void start(Stage primaryStage) throws Exception {
-
         bgMusicPlayer_nor.setOnEndOfMedia(new Runnable() {
             @Override
             public void run() {

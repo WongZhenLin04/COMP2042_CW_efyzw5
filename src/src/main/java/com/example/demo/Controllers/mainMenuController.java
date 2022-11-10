@@ -21,11 +21,6 @@ public class mainMenuController extends sceneController {
         primaryStage.setScene(getAccountScene);
     }
 
-    @Override
-    public void detectEvent(Event event) throws IOException {
-        primaryStage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        switchToScene();
-    }
     public void switchToSpecialMenu(){
         try {
             Parent specialMenuRoot = specialMenuLoader.load();

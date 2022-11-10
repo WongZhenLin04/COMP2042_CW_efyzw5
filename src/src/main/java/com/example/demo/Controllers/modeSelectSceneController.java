@@ -23,7 +23,10 @@ public class modeSelectSceneController extends sceneController implements Initia
     @FXML
     private ChoiceBox<String> modeSelectBox;
     private final String[] dimensions = {"3x3","4x4","5x5"};
-
+    private String choice="4x4";
+    public String getChoice() {
+        return choice;
+    }
     @Override
     public void switchToScene() throws IOException {
         Image Bg = new Image(new File("COMP2042_CW_efyzw5\\src\\src\\main\\resources\\com\\example\\demo\\back_nor.jpg").toURI().toString());
@@ -32,15 +35,9 @@ public class modeSelectSceneController extends sceneController implements Initia
         setGameScene(new Scene(gameRoot, Main.WIDTH, Main.HEIGHT, Color.rgb(240, 240, 240)));
         GameScene game = new GameScene();
         Group endgameRoot = new Group();
-        Scene endGameScene = new Scene(endgameRoot, Main.WIDTH, Main.HEIGHT, Color.rgb(250, 20, 100, 0.2));
+        Scene endGameScene = new Scene(endgameRoot, Main.WIDTH, Main.HEIGHT, Color.rgb(240, 240, 240));
         game.game(gameScene, gameRoot, primaryStage, endGameScene, endgameRoot);
         primaryStage.setScene(gameScene);
-    }
-
-    @Override
-    public void detectEvent(Event event) throws IOException {
-        primaryStage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        switchToScene();
     }
 
     @Override
@@ -49,7 +46,7 @@ public class modeSelectSceneController extends sceneController implements Initia
         modeSelectBox.setOnAction(this::getChoice);
     }
     public void getChoice(ActionEvent event){
-        String choice = modeSelectBox.getValue();
+        choice = modeSelectBox.getValue();
         switch (choice){
             case "4x4":{
                 GameScene.setN(4);

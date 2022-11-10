@@ -53,6 +53,9 @@ abstract public class sceneController {
         this.primaryStage=primaryStage;
     }
     public abstract void switchToScene() throws IOException;
-    public abstract void detectEvent(Event event) throws IOException;
+    public void detectEvent(Event event) throws IOException{
+        primaryStage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        switchToScene();
+    }
 
 }

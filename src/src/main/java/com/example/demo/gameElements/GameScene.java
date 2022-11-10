@@ -2,6 +2,7 @@ package com.example.demo.gameElements;
 import com.example.demo.endGameElements.EndGame;
 import com.example.demo.gameElements.Utilities.stateChecker;
 import com.example.demo.gameElements.Utilities.tileMovement;
+import com.example.demo.gameElements.Utilities.stateChecker;
 import javafx.application.Platform;
 import javafx.scene.Group;
 import javafx.scene.Scene;
@@ -21,7 +22,7 @@ public class GameScene {
     private long score = 0;
     private int haveEmptyCell;
     private final gameVisuals gameVisuals = new gameVisuals();
-    private final com.example.demo.gameElements.Utilities.stateChecker stateChecker = new stateChecker();
+    private final stateChecker stateChecker = new stateChecker();
     private final tileMovement movement = new tileMovement();
     public static int getN() {
         return n;

@@ -31,11 +31,6 @@ public class getProfileSceneController extends sceneController implements Initia
         primaryStage.setScene(modeScene);
     }
     @Override
-    public void detectEvent(Event event) throws IOException {
-        primaryStage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        switchToScene();
-    }
-    @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         readAccounts();
         accountSelect.getItems().addAll(accounts.toArray(new String[accounts.size()]));

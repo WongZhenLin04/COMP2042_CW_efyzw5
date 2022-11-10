@@ -23,8 +23,8 @@ public class modeSelectSceneController extends sceneController implements Initia
     @FXML
     private ChoiceBox<String> modeSelectBox;
     private final String[] dimensions = {"3x3","4x4","5x5"};
-    private String choice="4x4";
-    public String getChoice() {
+    private static String choice="4x4";
+    public static String getChoice() {
         return choice;
     }
     @Override
@@ -46,7 +46,7 @@ public class modeSelectSceneController extends sceneController implements Initia
         modeSelectBox.setOnAction(this::getChoice);
     }
     public void getChoice(ActionEvent event){
-        choice = modeSelectBox.getValue();
+        this.choice = modeSelectBox.getValue();
         switch (choice){
             case "4x4":{
                 GameScene.setN(4);

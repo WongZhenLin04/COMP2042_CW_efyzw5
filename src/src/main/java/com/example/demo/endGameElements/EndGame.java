@@ -19,13 +19,7 @@ public class EndGame {
         return singleInstance;
     }
     public void endGameShowLose(Group root, long score){
-        /*
-        if(highScore.newHighscore(score)){
-            endGameVisuals.setNewHighScore(root);
-            highScore.writeHighScore(score);
-        }
-         */
-        highScore.writeHighScore(score);
+        highScore.setHighscore(score, root);
         endGameVisuals.setEndTitle(root);
         endGameVisuals.setEndScore(root,score);
         endGameVisuals.setEndButton(root);

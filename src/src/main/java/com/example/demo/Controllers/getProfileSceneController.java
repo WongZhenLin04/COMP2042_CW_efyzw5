@@ -39,7 +39,7 @@ public class getProfileSceneController extends sceneController implements Initia
     }
     public void readAccounts(){
         try {
-            File accountFile = new File("COMP2042_CW_efyzw5\\src\\src\\main\\resources\\com\\example\\demo\\Accounts.txt");
+            File accountFile = new File("COMP2042_CW_efyzw5-main\\src\\src\\main\\resources\\com\\example\\demo\\Accounts.txt");
             Scanner reader = new Scanner(accountFile);
             while (reader.hasNextLine()){
                 accounts.add(reader.nextLine());

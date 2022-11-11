@@ -7,8 +7,8 @@ import java.io.*;
 import java.util.Objects;
 
 public class highScore {
-    private final String pathToScore="COMP2042_CW_efyzw5\\src\\src\\main\\resources\\com\\example\\demo\\highScore.txt";
-    private final String pathToTemp="COMP2042_CW_efyzw5\\src\\src\\main\\resources\\com\\example\\demo\\temp.txt";
+    private final String pathToScore="COMP2042_CW_efyzw5-main\\src\\src\\main\\resources\\com\\example\\demo\\highScore.txt";
+    private final String pathToTemp="COMP2042_CW_efyzw5-main\\src\\src\\main\\resources\\com\\example\\demo\\temp.txt";
     private final endGameVisuals endGameVisuals = new endGameVisuals();
     public void setHighscore(long score, Group root){
         try {

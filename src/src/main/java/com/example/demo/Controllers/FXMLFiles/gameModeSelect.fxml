@@ -7,8 +7,9 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1250.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.Controllers.modeSelectSceneController">
    <children>
-      <Label fx:id="selectTitle" alignment="CENTER" layoutY="132.0" prefHeight="154.0" prefWidth="1251.0" text="Select your game mode" />
-      <Button layoutX="557.0" layoutY="441.0" mnemonicParsing="false" onMouseClicked="#detectEvent" prefHeight="82.0" prefWidth="161.0" text="Button" />
-      <ChoiceBox fx:id="modeSelectBox" layoutX="558.0" layoutY="334.0" prefWidth="150.0" />
+      <Label fx:id="selectTitle" alignment="CENTER" layoutY="96.0" prefHeight="154.0" prefWidth="1250.0" text="Select your game mode" />
+      <Button layoutX="557.0" layoutY="478.0" mnemonicParsing="false" onMouseClicked="#detectEvent" prefHeight="82.0" prefWidth="161.0" text="Select" />
+      <ChoiceBox fx:id="modeSelectBox" layoutX="556.0" layoutY="368.0" prefWidth="150.0" />
+      <Label fx:id="menuLabel" alignment="CENTER" layoutX="7.0" layoutY="254.0" prefHeight="18.0" prefWidth="1254.0" text="(4x4 by default)" />
    </children>
 </AnchorPane>

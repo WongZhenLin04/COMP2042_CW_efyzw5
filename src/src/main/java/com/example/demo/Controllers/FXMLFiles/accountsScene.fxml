@@ -7,8 +7,9 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1250.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.Controllers.getProfileSceneController">
    <children>
-      <Label fx:id="accountLabel" alignment="CENTER" layoutX="423.0" layoutY="132.0" prefHeight="153.0" prefWidth="429.0" text="Who are you?" />
-      <Button layoutX="557.0" layoutY="441.0" mnemonicParsing="false" onMouseClicked="#detectEvent" prefHeight="82.0" prefWidth="161.0" text="Button" />
-      <ChoiceBox fx:id="accountSelect" layoutX="558.0" layoutY="334.0" prefWidth="150.0" />
+      <Label fx:id="accountLabel" alignment="CENTER" layoutX="10.0" layoutY="114.0" prefHeight="153.0" prefWidth="1250.0" text="Who are you?" />
+      <Button layoutX="567.0" layoutY="496.0" mnemonicParsing="false" onMouseClicked="#detectEvent" prefHeight="82.0" prefWidth="161.0" text="Button" />
+      <ChoiceBox fx:id="accountSelect" layoutX="568.0" layoutY="389.0" prefWidth="150.0" />
+      <Label fx:id="menuLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="18.0" layoutY="269.0" prefHeight="18.0" prefWidth="1250.0" text="(No Name by default)" textAlignment="CENTER" />
    </children>
 </AnchorPane>

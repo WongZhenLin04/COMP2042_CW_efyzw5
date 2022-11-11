@@ -18,13 +18,13 @@ public class TextMaker {
         return singleInstance;
     }
 
-    public Text madeText(String input, double xCell, double yCell, Group root) {
+    public Text madeText(String input, double xCell, double yCell) {
         double length = GameScene.getLENGTH();
         double fontSize = (3 * length) / 7.0;
         Text text = new Text(input);
         if(!Main.isDogeMode()) {
             text.setFont(Font.font(fontSize));
-            text.relocate((xCell + (1.2) * length / 3.5), (yCell + 2 * length / 9.0));
+            text.relocate((xCell + (1.2) * length / 7.0), (yCell + 2 * length / 7.0));
         }
         text.setFill(Color.WHITE);
         return text;

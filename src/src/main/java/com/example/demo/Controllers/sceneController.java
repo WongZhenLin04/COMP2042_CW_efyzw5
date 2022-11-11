@@ -2,13 +2,12 @@ package com.example.demo.Controllers;
 
 import javafx.event.Event;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.*;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.scene.paint.Color;
+import javafx.scene.Group;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-import java.io.File;
 import java.io.IOException;
 
 abstract public class sceneController {
@@ -20,6 +19,7 @@ abstract public class sceneController {
     protected Scene getAccountScene;
     protected final FXMLLoader accountLoader = new FXMLLoader(getClass().getResource("FXMLFiles/accountsScene.fxml"));
     protected final FXMLLoader modeSelLoader = new FXMLLoader(getClass().getResource("FXMLFiles/gameModeSelect.fxml"));
+    protected String css = this.getClass().getResource("FXMLFiles/menuStyle.css").toExternalForm();
     protected Parent modeRoot;
     protected Scene modeScene;
     public void setSetModeRoot(Parent setModeRoot) {

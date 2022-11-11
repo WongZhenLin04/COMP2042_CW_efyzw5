@@ -1,18 +1,16 @@
 package com.example.demo.Controllers;
-import com.example.demo.gameElements.GameScene;
+
 import com.example.demo.Main;
+import com.example.demo.gameElements.GameScene;
 import javafx.event.ActionEvent;
-import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Group;
-import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
-import javafx.stage.Stage;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -32,7 +30,7 @@ public class modeSelectSceneController extends sceneController implements Initia
         Image Bg = new Image(new File("COMP2042_CW_efyzw5\\src\\src\\main\\resources\\com\\example\\demo\\back_nor.jpg").toURI().toString());
         ImageView pat = new ImageView(Bg);
         setGameRoot(new Group(pat));
-        setGameScene(new Scene(gameRoot, Main.WIDTH, Main.HEIGHT, Color.rgb(240, 240, 240)));
+        setGameScene(new Scene(gameRoot, Main.WIDTH, Main.HEIGHT, Color.rgb(246,250,249)));
         GameScene game = new GameScene();
         Group endgameRoot = new Group();
         Scene endGameScene = new Scene(endgameRoot, Main.WIDTH, Main.HEIGHT, Color.rgb(240, 240, 240));

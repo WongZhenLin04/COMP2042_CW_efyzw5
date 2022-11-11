@@ -2,7 +2,6 @@ package com.example.demo.gameElements.Utilities;
 
 import com.example.demo.gameElements.Cell;
 import com.example.demo.gameElements.GameScene;
-import com.example.demo.gameElements.Utilities.generalMovement;
 
 public class tileMovement extends generalMovement {
     private int n = GameScene.getN();

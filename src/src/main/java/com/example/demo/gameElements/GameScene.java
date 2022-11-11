@@ -1,8 +1,8 @@
 package com.example.demo.gameElements;
+
 import com.example.demo.endGameElements.EndGame;
 import com.example.demo.gameElements.Utilities.stateChecker;
 import com.example.demo.gameElements.Utilities.tileMovement;
-import com.example.demo.gameElements.Utilities.stateChecker;
 import javafx.application.Platform;
 import javafx.scene.Group;
 import javafx.scene.Scene;
@@ -10,6 +10,7 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+
 import java.util.Random;
 public class GameScene {
     private static final int HEIGHT = 700;
@@ -88,8 +89,9 @@ public class GameScene {
             }
 
         }
+        gameVisuals.makeScoreRekt(root);
         Text text = new Text();
-        gameVisuals.addScoreBoard(root,text);
+        gameVisuals.addScoreText(root,text);
         Text scoreText = new Text();
         gameVisuals.initializeScore(root,scoreText);
         randomFillNumber();

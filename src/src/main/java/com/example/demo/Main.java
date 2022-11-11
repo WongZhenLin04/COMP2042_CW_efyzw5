@@ -83,7 +83,6 @@ public class Main extends Application {
                 }
             }
         });
-
         primaryStage.setScene(menuScene);
         menuScene1.setPrimaryStage(primaryStage);
         primaryStage.show();

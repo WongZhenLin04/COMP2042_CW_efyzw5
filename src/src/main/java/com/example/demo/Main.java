@@ -13,24 +13,35 @@ import javafx.scene.media.*;
 import javafx.util.Duration;
 import java.io.File;
 
+/**
+ * The execution class of all classes also contains information about the main menu (i.e. the path to files that it uses, the dimensions of the screen
+ * and determines the state of a certain Easter egg)
+ */
 public class Main extends Application {
     public static final int WIDTH = 1250;
     public static final int HEIGHT = 768;
     private static boolean dogeMode=false;
-    private final String borkFile = "COMP2042_CW_efyzw5-main\\src\\src\\main\\resources\\com\\example\\demo\\bork.mp3";
-    private final String bgMusic_egg = "COMP2042_CW_efyzw5-main\\src\\src\\main\\resources\\com\\example\\demo\\bgMusic_egg.mp3";
-    private final String bgMusic_nor="COMP2042_CW_efyzw5-main\\src\\src\\main\\resources\\com\\example\\demo\\bgMus_normal.mp3";
-    private final Media bgMusicMedia_egg = new Media(new File(bgMusic_egg).toURI().toString());
-    private final Media bork = new Media(new File(borkFile).toURI().toString());
-    private final Media bgMusicMedia_nor = new Media(new File(bgMusic_nor).toURI().toString());
+    private final Media bgMusicMedia_egg = new Media(new File("COMP2042_CW_efyzw5-main\\src\\src\\main\\resources\\com\\example\\demo\\bgMusic_egg.mp3").toURI().toString());
+    private final Media bork = new Media(new File("COMP2042_CW_efyzw5-main\\src\\src\\main\\resources\\com\\example\\demo\\bork.mp3").toURI().toString());
+    private final Media bgMusicMedia_nor = new Media(new File("COMP2042_CW_efyzw5-main\\src\\src\\main\\resources\\com\\example\\demo\\bgMus_normal.mp3").toURI().toString());
     private final MediaPlayer bgMusicPlayer_egg = new MediaPlayer(bgMusicMedia_egg);
     private final MediaPlayer borkPlayer = new MediaPlayer(bork);
     private final MediaPlayer bgMusicPlayer_nor = new MediaPlayer(bgMusicMedia_nor);
     private final FXMLLoader loader = new FXMLLoader(getClass().getResource("Controllers/FXMLFiles/mainMenu.fxml"));
     private final mainMenuController menuScene1 = new mainMenuController();
+    /**
+     * Method for determining the condition of "dogeMode"
+     * @return <code>true</code> :activate events that coincide with the Easter egg activation
+     *         <code>false</code> :run code as usual.
+     */
     public static boolean isDogeMode() {
         return dogeMode;
     }
+
+    /**
+     * The main entry point for all JavaFX applications.
+     * @param primaryStage the stage in which all the scenes within the game play out.
+     */
     @Override
     public void start(Stage primaryStage) throws Exception {
         bgMusicPlayer_nor.setOnEndOfMedia(new Runnable() {
@@ -46,6 +57,11 @@ public class Main extends Application {
         mainMenuController sceneController = loader.getController();
         menuScene.getStylesheets().add(css);
         menuScene.setOnKeyPressed(new EventHandler<KeyEvent>() {
+            /**
+             * Invoked when a specific event of the type for which this handler is registered happens. In this specific implementation, the method is used to
+             * detect the type of keys pressed within the main menu. If the correct key is pressed in the correct sequence, the amount of correct keys pressed
+             * will increment, else decrease. If the amount of keys reaches 4 it will activate the Easter egg
+             */
             @Override
             public void handle(KeyEvent event) {
                 if ((event.getCode() == KeyCode.ENTER)||(event.getCode() == KeyCode.SPACE)){
@@ -88,6 +104,9 @@ public class Main extends Application {
         primaryStage.show();
     }
 
+    /**
+     * The driver method of all java code
+     */
     public static void main(String[] args) {
         launch(args);
     }

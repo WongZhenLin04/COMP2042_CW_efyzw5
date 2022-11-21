@@ -12,29 +12,64 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.util.Random;
+/**
+ * This class is the main class for all operations that shall be orchestrated within the game scene (i.e. calling the correct class and the correct method at the appropriate time) to ensure all functions as intended when the user is playing through the game.
+ * Mainly the what, how and the order in which the elements shall appear in will be determined here.The class is instantiated whenever the user has made a choice in their mode that they wish to play.
+ */
 public class GameScene {
     private static final int HEIGHT = 700;
     protected static int n = 4;
     private final static int distanceBetweenCells = 10;
     private static double LENGTH = (HEIGHT - ((n + 1) * distanceBetweenCells)) / (double) n;
-    private final TextMaker textMaker = TextMaker.getSingleInstance();
     private Cell[][] cells = new Cell[n][n];
     private Group root;
     private long score = 0;
     private int haveEmptyCell;
-    private final gameVisuals gameVisuals = new gameVisuals();
-    private final stateChecker stateChecker = new stateChecker();
-    private final tileMovement movement = new tileMovement();
+    private TextMaker textMaker;
+    private gameVisuals gameVisuals;
+    private stateChecker stateChecker;
+    private tileMovement movement;
+    /**
+     *Constructor for the GameScene class. When instantiated, the class shall create instances of the following classes, textMaker, gameVisuals,
+     * stateChecker and movement. Reason being that these classes hold the methods that are key to the success of the operations within the gameScene.
+     * Class itself is instantiated in the modeSelectSceneController after the user has selected their mode of choice.
+     */
+    public GameScene(){
+        gameVisuals = new gameVisuals();
+        stateChecker = new stateChecker();
+        movement = new tileMovement();
+        textMaker = TextMaker.getSingleInstance();
+    }
+    /**
+     * method that returns the dimensions that was chosen by the user. Used in utility classes to check the boundaries of the game.
+     * @return The dimension of the playing field.
+     */
     public static int getN() {
         return n;
     }
+    /**
+     * Method used in setting the dimensions of the playing field (tiles). Used when the user has made a choice in the choice box in the mode selection screen. Always defaults to
+     * 4 when the user has made no choice (not determined by this specific method). Method also calculates the exact length of the cells. Length (one side) of the cell is also set as the
+     * length of each cell varies from dimension to dimension.
+     * @param number the dimensions (number x number) in which the tiles will set in.
+     */
     public static void setN(int number) {
         n = number;
         LENGTH = (HEIGHT - ((n + 1) * distanceBetweenCells)) / (double) n;
     }
+    /**
+     * Method that returns the length of one side of a single cell. Value is never constant for each mode, therefore it is important for the utility functions to be up-to-date with the
+     * exact measurements.
+     * @return the length of one side of one cell in pixels.
+     */
     public static double getLENGTH() {
         return LENGTH;
     }
+    /**
+     * Method that gets a random empty cell and fills it with properties that'll make the previously empty cell into either a 2 or 4 cell. This is done so by creating the area of which empty
+     * cells exists and also creating the boundary variables for both the X and Y position. 3 random integers are then generated, two for the X and Y values (that are in between their respective bounds)
+     * for the targeted cell and one for determining if 2 or 4 shall be the value of the targeted cell.
+     */
     private void randomFillNumber() {
         Cell[][] emptyCells = new Cell[n][n];
         int a = 0;
@@ -77,6 +112,16 @@ public class GameScene {
             emptyCells[xCell][yCell].setColorByNumber(4);
         }
     }
+    /**
+     * Generally the method is employed as an initializer and a controller. The responsibilities of the class includes determining the position of the playing space, the order in which
+     * the elements appear in, calling the correct methods from other classes for movement related activities and shall also detect the instance when the user has lost or won and act accordingly
+     * to the situation. Method mainly utilizes all the utility methods from the utility package in order to achieve a coherent experience.
+     * @param gameScene The scene that shall be filled with the correct elements in the correct order by the method.
+     * @param root cluster of elements that shall appear in the game scene. Will be filled by the method.
+     * @param primaryStage the stage in which all scenes play out and is the main window for the game.
+     * @param endGameScene The endgame Scene for the game, used to instantiate the end game scene when user wins or losses.
+     * @param endGameRoot The endgame Group for the game, used to instantiate the elements in the end game when user wins or losses.
+     */
     public void game(Scene gameScene, Group root, Stage primaryStage, Scene endGameScene, Group endGameRoot) {
         root.setLayoutX(150.0);
         root.setLayoutY(25);
@@ -134,11 +179,18 @@ public class GameScene {
                     if (haveEmptyCell == -1) {
                         if (stateChecker.canNotMove(cells)) {
                             primaryStage.setScene(endGameScene);
-
-                            EndGame.getInstance().endGameShowLose(endGameRoot, score);
+                            EndGame endGame = new EndGame('l');
+                            endGame.endGameShow(endGameRoot, score);
                             root.getChildren().clear();
                             score = 0;
                         }
+                    }
+                    if (haveEmptyCell==0){
+                        primaryStage.setScene(endGameScene);
+                        EndGame endGame = new EndGame('w');
+                        endGame.endGameShow(endGameRoot, score);
+                        root.getChildren().clear();
+                        score = 0;
                     }
                 });
             });

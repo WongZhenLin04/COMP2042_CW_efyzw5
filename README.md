@@ -30,6 +30,7 @@ COMP2042_CW_efyzw5-main\src\src\main\resources\com\example\demo\JavaDoc
 2. Cells are only filled with values if a move is not a static move.
 3. Positioning of the cells and Scoreboard have been changed.
 4. Score does not increment on every button press now.
+5. Win condition does not require the entire board to be filled anymore.
 - Features not fully implemented
 1. No way to formally add a new profile. This is due to the fact that there will involve a lot more logistics and working with only simple .txt file reading will require a lot more resources.
 2. In a similar vein as 1, the account scene is not implemented due to the resources required would make the whole structure too complex.

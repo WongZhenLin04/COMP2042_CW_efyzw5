@@ -5,6 +5,7 @@ import com.example.demo.gameElements.Cell;
  * The Class "tileChecker" has the distinct responsibility of conducting where the cells should go and if the cell moving in a certain direction are eligible for a merge operation.
  * It is instantiated in the generalMovement class and is considered to be a core part of the operations within the class as this is the class for analysing the target locations of cells
  * whenever the user has pressed a key for the movement of cells. Decisions about updating the user's score is also made here.
+ * @author Zhen Lin Wong
  */
 public class tileChecker{
     private int n;

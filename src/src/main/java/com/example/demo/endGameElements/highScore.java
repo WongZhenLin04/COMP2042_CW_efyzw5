@@ -9,6 +9,7 @@ import java.util.Objects;
  * The highscore class is utilized through its function of determining if a new highscore is made after each user's gaming session. Generally, after each session, the class reads
  * from the highscore file and grabs the correct score for the correct mode (as class knows the mode chosen due to the fact that the getChoice method is a static) by checking each
  * line in the file sequentially. It is important to note that the operations of the file ultimately ends up creating a new file (temp) and destroying the aforementioned file.
+ * @author Zhen Lin Wong
  */
 public class highScore {
     private final String pathToScore="COMP2042_CW_efyzw5-main\\src\\src\\main\\resources\\com\\example\\demo\\highScore.txt";

@@ -6,6 +6,7 @@ import com.example.demo.gameElements.GameScene;
  * The class is concerned with the operations that happens within the game, more specifically it determines the state the game is in at the time that any of the method from within
  * the class is called. Class is utilized to determine weather the state of the game needs to be manipulated in order to return the game into a state where it is functioning properly and
  * as intended.
+ * @author Zhen Lin Wong
  */
 public class stateChecker {
     private int n = GameScene.getN();
@@ -20,15 +21,16 @@ public class stateChecker {
      *         <code>-1</code> means that there are no empty cells and the user has lost.
      */
     public int haveEmptyCell(Cell[][] cells, int n) {
+        int res=-1;
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
                 if (cells[i][j].getNumber() == 0)
-                    return 1;
+                    res = 1;
                 if(cells[i][j].getNumber() == 2048)
                     return 0;
             }
         }
-        return -1;
+        return res;
     }
     /**
      * Method is used to check if the user's move is a static move, meaning that if when pressing a key to move, none of the cells move (no changing in position) or merge.
@@ -119,9 +121,9 @@ public class stateChecker {
      * @param i The row number of the cell
      * @param j The column number of the cell
      * @return <code>true</code> means that either the cells beneath or under the currently analysed cell is equal to the value of the analysed cell.
-     *         <code>false</code> neither cells beneath or under the currently analysed cell is equal to the value of the analysed cell.
+     *         <code>false</code> neither cells beneath nor under the currently analysed cell is equal to the value of the analysed cell.
      */
-    private boolean haveSameNumberNearly(Cell[][] cells,int i, int j) {
+    public boolean haveSameNumberNearly(Cell[][] cells,int i, int j) {
         if (i < n - 1 && j < n - 1) {
             if (cells[i + 1][j].getNumber() == cells[i][j].getNumber())
                 return true;

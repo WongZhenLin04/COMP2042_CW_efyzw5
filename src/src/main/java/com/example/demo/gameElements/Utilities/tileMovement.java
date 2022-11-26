@@ -4,6 +4,7 @@ import com.example.demo.gameElements.Cell;
 /**
  * The Class is a specialised version and inheritor of the generalMovement class. The class's responsibilities involves with moving all cells within the playing field in a specific direction.
  * The class is instantiated within the GameScene class and the methods within the class are called upon when the user presses any of the directional arrows on their keyboard.
+ * @author Zhen Lin Wong
  */
 public class tileMovement extends generalMovement {
     /**

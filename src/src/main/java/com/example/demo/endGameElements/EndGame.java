@@ -9,6 +9,7 @@ import java.util.Optional;
 /**
  * The main class for the end game scene itself and is the core for all operations relating to the end game scene, albeit there only being a few functionalities. The decisions in
  * these methods mainly focus on deciding on which class is appropriate to show depending on the outcome of the user's play-through.
+ * @author Zhen Lin Wong-modified
  */
 public class EndGame {
     private endGameVisuals endGameVisuals;

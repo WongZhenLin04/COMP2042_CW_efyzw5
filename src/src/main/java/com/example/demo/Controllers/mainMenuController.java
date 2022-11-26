@@ -9,15 +9,24 @@ import java.io.IOException;
  * This class is a specialized class derived from "sceneController", in which handles the various activities that shall be conducted within
  * the main menu. Mainly it has two functionalities, to switch from main menu to the profile select scene or to switch from the normal menu to
  * the special menu when the Easter egg is triggered.
+ * @author Zhen Lin Wong
  */
 public class mainMenuController extends sceneController {
     private Parent getAccountRoot;
     private Scene getAccountScene;
     private final FXMLLoader accountLoader = new FXMLLoader(getClass().getResource("FXMLFiles/accountsScene.fxml"));
     private final FXMLLoader specialMenuLoader = new FXMLLoader(getClass().getResource("FXMLFiles/specialMainMenu.fxml"));
+    /**
+     * Method used in setting the Parent getAccountRoot in the class mainMenuController.
+     * @param getAccountRoot The Group to be set.
+     */
     public void setGetAccountRoot(Parent getAccountRoot) {
         this.getAccountRoot = getAccountRoot;
     }
+    /**
+     * Method used in setting the Scene getAccountScene in the class mainMenuController.
+     * @param getAccountScene The Scene to be set.
+     */
     public void setGetAccountScene(Scene getAccountScene) {
         this.getAccountScene = getAccountScene;
     }

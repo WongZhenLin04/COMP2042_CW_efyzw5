@@ -9,6 +9,7 @@ import javafx.scene.text.Font;
 /**
  * This class' main functionality is to display the visual elements within the game scene, those being mainly the score board coupled with the score text and
  * the background rectangle for the playing field to enhance visibility. The class is not interactive by nature and it's functionalities are purely for aesthetics.
+ * @author Zhen Lin Wong
  */
 public class gameVisuals {
     /**

@@ -12,6 +12,7 @@ import static com.example.demo.Controllers.modeSelectSceneController.*;
 /**
  * This class' main functionality is to display the visual elements within the end game screen, those being mainly the score, the relevant texts and a button for the user to
  * quit the game. Most methods in this class only adds elements within the groups they're given. The class is not interactive by nature and it's functionalities are purely for aesthetics
+ * @author Zhen Lin Wong
  */
 public class endGameVisuals {
     private final Button quitButton = new Button("QUIT");

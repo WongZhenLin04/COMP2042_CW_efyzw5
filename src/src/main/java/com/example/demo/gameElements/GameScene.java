@@ -15,12 +15,13 @@ import java.util.Random;
 /**
  * This class is the main class for all operations that shall be orchestrated within the game scene (i.e. calling the correct class and the correct method at the appropriate time) to ensure all functions as intended when the user is playing through the game.
  * Mainly the what, how and the order in which the elements shall appear in will be determined here.The class is instantiated whenever the user has made a choice in their mode that they wish to play.
+ * @author Zhen Lin Wong-modified
  */
 public class GameScene {
-    private static final int HEIGHT = 700;
+    public static final int HEIGHT = 700;
     protected static int n = 4;
-    private final static int distanceBetweenCells = 10;
-    private static double LENGTH = (HEIGHT - ((n + 1) * distanceBetweenCells)) / (double) n;
+    public final static int distanceBetweenCells = 10;
+    public static double LENGTH = (HEIGHT - ((n + 1) * distanceBetweenCells)) / (double) n;
     private Cell[][] cells = new Cell[n][n];
     private Group root;
     private long score = 0;

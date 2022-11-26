@@ -16,6 +16,7 @@ import java.io.File;
 /**
  * The execution class of all classes also contains information about the main menu (i.e. the path to files that it uses, the dimensions of the screen
  * and determines the state of a certain Easter egg)
+ * @author Zhen Lin Wong-modified
  */
 public class Main extends Application {
     public static final int WIDTH = 1250;

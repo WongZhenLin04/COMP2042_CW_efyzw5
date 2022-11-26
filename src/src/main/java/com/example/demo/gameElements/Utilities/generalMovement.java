@@ -7,11 +7,19 @@ import com.example.demo.gameElements.GameScene;
  * Class acts as a general blueprint and foundation for movement based interactions throughout the game. The main responsibility of the class is to keep track of the user's score (as when
  * there is movement there might be a point in which the one or more pairs of cells merging), which involves the manipulation of the score as well, and to determine how the cells move
  * and shift as well. Class is never instantiated but is fully utilized by its inheritor, tileChecker.
+ * @author Zhen Lin Wong
  */
 public class generalMovement {
     private long score;
     protected int n = GameScene.getN();
     protected final tileChecker tileChecker = new tileChecker(n);
+    /**
+     * Method that sets the dimension value of the playing field.
+     * @param n The dimension of the playing field to be set.
+     */
+    public void setN(int n) {
+        this.n = n;
+    }
     /**
      * Method used for returning the current score of the user. Used when the score is needed to be displayed for the user (i.e. updated)
      * @return The current score of the user at a given instance.

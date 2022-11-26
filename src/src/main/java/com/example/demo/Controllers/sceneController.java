@@ -10,6 +10,7 @@ import java.io.IOException;
  * Classes that extend the sceneController class can have different interpretation in regard to the "switchToScene"
  * meaning different classes can switch to different scenes in different context. Most of the variables within this abstract class is protected mainly
  * to prevent any other classes (apart from inheriting classes) from manipulating the data within.
+ * @author Zhen Lin Wong-modified
 */
 abstract public class sceneController {
     private int DogeKeysPressed=0;

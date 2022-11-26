@@ -20,6 +20,7 @@ import java.util.ResourceBundle;
  * the mode select scene. Users in this scene should be able to choose between 3 game modes, those being 3x3, 4x4 and 5x5. The game mode
  * will always default to 4x4 if nothing is chosen. It implements the "Initializable" class in order to execute actions upon the user's
  * selection within the choice box.
+ * @author Zhen Lin Wong
  */
 public class modeSelectSceneController extends sceneController implements Initializable {
     private Group gameRoot;
@@ -28,11 +29,33 @@ public class modeSelectSceneController extends sceneController implements Initia
     private ChoiceBox<String> modeSelectBox;
     private final String[] dimensions = {"3x3","4x4","5x5"};
     private static String choice="4x4";
+    /**
+     * Method that returns the array of possible dimensions of the playing field.
+     * @return A String array of possible dimensions.
+     */
+    public String[] getDimensions() {
+        return dimensions;
+    }
+    /**
+     * Method that sets the gameRoot from the parameter.
+     * @param gameRoot The Group to be set.
+     */
     public void setGameRoot(Group gameRoot) {
         this.gameRoot = gameRoot;
     }
+    /**
+     * Method that sets the gameScene from the parameter.
+     * @param gameScene The Scene to be set.
+     */
     public void setGameScene(Scene gameScene) {
         this.gameScene = gameScene;
+    }
+    /**
+     * Methods that sets the preferred dimension of the user. Used only in test cases.
+     * @param choice The choice the user wishes to play in.
+     */
+    public static void setChoice(String choice) {
+        modeSelectSceneController.choice = choice;
     }
     /**
      * Method for getting the mode of choice that the user has, used by some classes to determine the next course of action.
@@ -59,7 +82,6 @@ public class modeSelectSceneController extends sceneController implements Initia
         game.game(gameScene, gameRoot, primaryStage, endGameScene, endgameRoot);
         primaryStage.setScene(gameScene);
     }
-
     /**
      * Method that was implemented from the javaFX interface "Initializable". In this context the method is adding all relevant choices
      * of dimensions to the choice box within the scene and getting the choice of the user through the method "getChoice"
@@ -71,7 +93,6 @@ public class modeSelectSceneController extends sceneController implements Initia
         modeSelectBox.getItems().addAll(dimensions);
         modeSelectBox.setOnAction(this::getChoice);
     }
-
     /**
      * Method sets the preferred dimensions for the game based on user's choice by calling the static method of setN to determine the dimension of the playing
      * field. The choice is passed from the choice box within the scene.

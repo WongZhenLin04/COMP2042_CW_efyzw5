@@ -9,6 +9,7 @@ import javafx.scene.text.Text;
  * This class' main responsibility revolves around the texts (numbers) within the cells on the playing field. It operates and manipulates the elements given to it and is always
  * called upon as a single instance, as multiple instances of the TextMaker class would essentially make the structure of the game more complex than it should be and would be pointless to have multiple instances of the class.
  * The class is mainly called upon by the game scene and the cell class as both of these classes needs the text inside the cells to be manipulated (visually) inorder to operate as indented.
+ * @author Zhen Lin Wong - modified
  */
 public class TextMaker {
     private static TextMaker singleInstance = null;

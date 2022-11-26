@@ -21,6 +21,7 @@ import static com.example.demo.Main.WIDTH;
  * This class is a specialized class derived from "sceneController", in which handles the various activities that shall be conducted within
  * the profile Select menu. The functionalities of the class includes filling the choice box within the profile choice box
  * , getting the user's choice from the aforementioned box and switching from the profile select scene to the mode select screen.
+ * @author Zhen Lin Wong
  */
 public class getProfileSceneController extends sceneController implements Initializable {
     private Parent modeRoot;
@@ -30,13 +31,27 @@ public class getProfileSceneController extends sceneController implements Initia
     private ArrayList<String> accounts =new ArrayList<String>();
     @FXML
     private ChoiceBox<String> accountSelect;
+    /**
+     * Method used in setting the modeRoot to the input Parent "setModeRoot".
+     * @param setModeRoot input Parent in which the user wants to set modeSelectRoot to.
+     */
     public void setSetModeRoot(Parent setModeRoot) {
         this.modeRoot = setModeRoot;
     }
+    /**
+     * Method used in setting the modeScene to the input Scene "setModeScene".
+     * @param setModeScene input Scene in which the user wants to set modeSelectSene to.
+     */
     public void setSetModeScene(Scene setModeScene) {
         this.modeScene = setModeScene;
     }
-
+    /**
+     * Method that returns the accounts as an array list. Used in the test cases for the method.
+     * @return Account names in the form of an array list.
+     */
+    public ArrayList<String> getAccounts() {
+        return accounts;
+    }
     /**
      * Method to return the account name chosen by the user, used by the end game scene to be displayed if a new highscore is set
      * @return the account that the user has chosen to be displayed

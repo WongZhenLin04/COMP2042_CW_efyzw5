@@ -1,7 +1,6 @@
 package com.example.demo.gameElements;
 
-import com.example.demo.Main;
-import javafx.scene.Group;
+import com.example.demo.Observer;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
@@ -11,8 +10,19 @@ import javafx.scene.text.Text;
  * The class is mainly called upon by the game scene and the cell class as both of these classes needs the text inside the cells to be manipulated (visually) inorder to operate as indented.
  * @author Zhen Lin Wong - modified
  */
-public class TextMaker {
+public class TextMaker extends Observer {
+    private boolean dogeMode;
     private static TextMaker singleInstance = null;
+    /**
+     * Method that was implemented from the Observer class, used to change the dogeMode boolean to the state entered.
+     * @param state The state of the boolean doge mode.
+     *              <code>true</code> means that the Easter egg has been activated.
+     *              <code>false</code> means that the game is played normally.
+     */
+    @Override
+    public void update(boolean state) {
+        dogeMode=state;
+    }
     /**
      * The constructor of the class,necessary for only having a single instance of the class.
      */
@@ -44,7 +54,7 @@ public class TextMaker {
         double fontSize = (3 * length) / 7.0;
         Text text = new Text(input);
         text.setFill(Color.rgb(153, 173, 168));
-        if(!Main.isDogeMode()) {
+        if(!dogeMode) {
             text.setFont(Font.font(fontSize));
             text.relocate((xCell + (1.2) * length / 7.0), (yCell + 2 * length / 7.0));
             text.setFill(Color.WHITE);
@@ -73,5 +83,6 @@ public class TextMaker {
         second.setY(tempNumber);
 
     }
+
 
 }

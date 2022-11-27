@@ -1,6 +1,6 @@
 package com.example.demo.gameElements;
 
-import com.example.demo.Main;
+import com.example.demo.Observer;
 import javafx.scene.Group;
 import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
@@ -12,11 +12,25 @@ import java.io.File;
  * This class is used in instantiating the tiles we see on the game scene with the dimension that the user has chosen (that being nxn dimensions). The class also has the responsibility of setting the contents of a given cell (i.e. the number displayed and the colour of the cell) and is also responsible for the addition function for when two of the same tiles collide. It is important to note that the terms tiles and cells are used interchangeably. The actual generation of the numbers to be displayed aren't handled by this class, but it is responsible for getting the actual value of the cell for the use of other classes.
  * @author Zhen Lin Wong-modified
  */
-public class Cell {
+public class Cell extends Observer {
     private Rectangle rectangle;
     private Group root;
     private Text textClass;
+    private boolean dogeMode;
     private boolean modify = false;
+    public Rectangle getRectangle() {
+        return rectangle;
+    }
+    /**
+     * Method that was implemented from the Observer class, used to change the dogeMode boolean to the state entered.
+     * @param state The state of the boolean doge mode.
+     *              <code>true</code> means that the Easter egg has been activated.
+     *              <code>false</code> means that the game is played normally.
+     */
+    @Override
+    public void update(boolean state) {
+        dogeMode=state;
+    }
     /**
      * This method is used to indicate whether a particular cell has been combined with another cell in one turn. The resulting cell after a move will hold whatever boolean value the code has deemed it to hold depending on the conditions.
      * @param modify the condition of the cell in a single turn.
@@ -95,7 +109,7 @@ public class Cell {
                 rectangle.setFill(Color.rgb(252, 252, 252));
                 break;
             case 2:
-                if(!Main.isDogeMode()) {
+                if(!dogeMode) {
                     rectangle.setFill(Color.rgb(238,228,218));
                 }else {
                     Image doge2 = new Image(new File("COMP2042_CW_efyzw5-main\\src\\src\\main\\resources\\com\\example\\demo\\2doge.gif").toURI().toString());
@@ -104,7 +118,7 @@ public class Cell {
                 }
                 break;
             case 4:
-                if(!Main.isDogeMode()) {
+                if(!dogeMode) {
                     rectangle.setFill(Color.rgb(237,224,200));
                 }else {
                     Image doge4 = new Image(new File("COMP2042_CW_efyzw5-main\\src\\src\\main\\resources\\com\\example\\demo\\4doge.gif").toURI().toString());
@@ -113,7 +127,7 @@ public class Cell {
                 }
                 break;
             case 8:
-                if(!Main.isDogeMode()) {
+                if(!dogeMode) {
                     rectangle.setFill(Color.rgb(242,177,121));
                 }else {
                     Image doge8 = new Image(new File("COMP2042_CW_efyzw5-main\\src\\src\\main\\resources\\com\\example\\demo\\8doge.gif").toURI().toString());
@@ -122,7 +136,7 @@ public class Cell {
                 }
                 break;
             case 16:
-                if(!Main.isDogeMode()) {
+                if(!dogeMode) {
                     rectangle.setFill(Color.rgb(245,149,99));
                 }else {
                     Image doge16 = new Image(new File("COMP2042_CW_efyzw5-main\\src\\src\\main\\resources\\com\\example\\demo\\16doge.gif").toURI().toString());
@@ -131,7 +145,7 @@ public class Cell {
                 }
                 break;
             case 32:
-                if(!Main.isDogeMode()) {
+                if(!dogeMode) {
                     rectangle.setFill(Color.rgb(246,124,96));
                 }else {
                     Image doge32 = new Image(new File("COMP2042_CW_efyzw5-main\\src\\src\\main\\resources\\com\\example\\demo\\32doge.gif").toURI().toString());
@@ -140,7 +154,7 @@ public class Cell {
                 }
                 break;
             case 64:
-                if(!Main.isDogeMode()) {
+                if(!dogeMode) {
                     rectangle.setFill(Color.rgb(246,94,59));
                 }else {
                     Image doge64 = new Image(new File("COMP2042_CW_efyzw5-main\\src\\src\\main\\resources\\com\\example\\demo\\64doge.gif").toURI().toString());
@@ -149,7 +163,7 @@ public class Cell {
                 }
                 break;
             case 128:
-                if(!Main.isDogeMode()) {
+                if(!dogeMode) {
                     rectangle.setFill(Color.rgb(237,207,115));
                 }else {
                     Image doge128 = new Image(new File("COMP2042_CW_efyzw5-main\\src\\src\\main\\resources\\com\\example\\demo\\128doge.gif").toURI().toString());
@@ -158,7 +172,7 @@ public class Cell {
                 }
                 break;
             case 256:
-                if(!Main.isDogeMode()) {
+                if(!dogeMode) {
                     rectangle.setFill(Color.rgb(237,204,98));
                 }else {
                     Image doge256 = new Image(new File("COMP2042_CW_efyzw5-main\\src\\src\\main\\resources\\com\\example\\demo\\256doge.gif").toURI().toString());
@@ -167,8 +181,8 @@ public class Cell {
                 }
                 break;
             case 512:
-                if(!Main.isDogeMode()) {
-                    rectangle.setFill(Color.rgb(237,200,80,255));
+                if(!dogeMode) {
+                    rectangle.setFill(Color.rgb(237,200,80));
                 }else {
                     Image doge512 = new Image(new File("COMP2042_CW_efyzw5-main\\src\\src\\main\\resources\\com\\example\\demo\\512doge.gif").toURI().toString());
                     ImagePattern doge512View = new ImagePattern(doge512);
@@ -176,7 +190,7 @@ public class Cell {
                 }
                 break;
             case 1024:
-                if(!Main.isDogeMode()) {
+                if(!dogeMode) {
                     rectangle.setFill(Color.rgb(237,197,63));
                 }else {
                     Image doge1024 = new Image(new File("COMP2042_CW_efyzw5-main\\src\\src\\main\\resources\\com\\example\\demo\\1024doge.gif").toURI().toString());
@@ -185,7 +199,7 @@ public class Cell {
                 }
                 break;
             case 2048:
-                if(!Main.isDogeMode()) {
+                if(!dogeMode) {
                     rectangle.setFill(Color.rgb(237,194,45));
                 }else {
                     Image doge2048 = new Image(new File("COMP2042_CW_efyzw5-main\\src\\src\\main\\resources\\com\\example\\demo\\2048doge.gif").toURI().toString());
@@ -225,5 +239,7 @@ public class Cell {
     private Text getTextClass() {
         return textClass;
     }
+
+
 
 }

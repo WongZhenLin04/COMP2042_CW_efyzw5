@@ -1,5 +1,7 @@
 package com.example.demo.gameElements;
 
+import com.example.demo.Main;
+import com.example.demo.Subject;
 import com.example.demo.endGameElements.EndGame;
 import com.example.demo.gameElements.Utilities.stateChecker;
 import com.example.demo.gameElements.Utilities.tileMovement;
@@ -17,7 +19,7 @@ import java.util.Random;
  * Mainly the what, how and the order in which the elements shall appear in will be determined here.The class is instantiated whenever the user has made a choice in their mode that they wish to play.
  * @author Zhen Lin Wong-modified
  */
-public class GameScene {
+public class GameScene extends Subject {
     public static final int HEIGHT = 700;
     protected static int n = 4;
     public final static int distanceBetweenCells = 10;
@@ -40,6 +42,7 @@ public class GameScene {
         stateChecker = new stateChecker();
         movement = new tileMovement();
         textMaker = TextMaker.getSingleInstance();
+        attach(textMaker);
     }
     /**
      * method that returns the dimensions that was chosen by the user. Used in utility classes to check the boundaries of the game.
@@ -124,6 +127,7 @@ public class GameScene {
      * @param endGameRoot The endgame Group for the game, used to instantiate the elements in the end game when user wins or losses.
      */
     public void game(Scene gameScene, Group root, Stage primaryStage, Scene endGameScene, Group endGameRoot) {
+        notifyAllObservers(Main.isDogeMode());
         root.setLayoutX(150.0);
         root.setLayoutY(25);
         gameVisuals.makeBgRekt(root);
@@ -132,9 +136,11 @@ public class GameScene {
             for (int j = 0; j < n; j++) {
                 cells[i][j] = new Cell((j) * LENGTH + (j + 1) * distanceBetweenCells,
                         (i) * LENGTH + (i + 1) * distanceBetweenCells, LENGTH, root);
+                attach(cells[i][j]);
             }
 
         }
+        notifyAllObservers(Main.isDogeMode());
         gameVisuals.makeScoreRekt(root);
         Text text = new Text();
         gameVisuals.addScoreText(root,text);

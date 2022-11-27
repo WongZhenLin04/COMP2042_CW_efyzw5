@@ -8,9 +8,11 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
-import javafx.scene.media.*;
 import javafx.util.Duration;
+
 import java.io.File;
 
 /**
@@ -18,7 +20,7 @@ import java.io.File;
  * and determines the state of a certain Easter egg)
  * @author Zhen Lin Wong-modified
  */
-public class Main extends Application {
+public class Main extends Application{
     public static final int WIDTH = 1250;
     public static final int HEIGHT = 768;
     private static boolean dogeMode=false;
@@ -38,7 +40,6 @@ public class Main extends Application {
     public static boolean isDogeMode() {
         return dogeMode;
     }
-
     /**
      * The main entry point for all JavaFX applications.
      * @param primaryStage the stage in which all the scenes within the game play out.
@@ -104,11 +105,11 @@ public class Main extends Application {
         menuScene1.setPrimaryStage(primaryStage);
         primaryStage.show();
     }
-
     /**
      * The driver method of all java code
      */
     public static void main(String[] args) {
         launch(args);
     }
+
 }

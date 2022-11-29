@@ -25,7 +25,7 @@ COMP2042_CW_efyzw5-main\src\src\main\resources\com\example\demo\JavaDoc
 8. A win condition that changes the text on the end game screen.
 9. A high score indicator which lets the user know when a new high score is set.
 10. Tile colours have been changed to the original 2048 colour scheme.
-- bug fixes
+- Bug fixes
 1. Score is now based on the number of merges per move.
 2. Cells are only filled with values if a move is not a static move.
 3. Positioning of the cells and Scoreboard have been changed.
@@ -46,11 +46,14 @@ COMP2042_CW_efyzw5-main\src\src\main\resources\com\example\demo\JavaDoc
 9. tileChecker
 10. tileMovement
 11. gameVisuals
+12. Observer
+13. Subject 
 - Classes that were modified
 1. EndGame
 2. GameScene
 3. Cell
 4. Main
 5. TextMaker
+6. Controller
 
 

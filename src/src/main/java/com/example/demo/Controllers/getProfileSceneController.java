@@ -68,7 +68,7 @@ public class getProfileSceneController extends sceneController implements Initia
     public void switchToScene() throws IOException {
         setSetModeRoot(modeSelLoader.load());
         setSetModeScene(new Scene(modeRoot, WIDTH, HEIGHT));
-        modeScene.getStylesheets().add(css);
+        modeScene.getStylesheets().add(cssLight);
         primaryStage.setScene(modeScene);
     }
     /**

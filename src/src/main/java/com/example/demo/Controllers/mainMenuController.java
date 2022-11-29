@@ -12,23 +12,23 @@ import java.io.IOException;
  * @author Zhen Lin Wong
  */
 public class mainMenuController extends sceneController {
-    private Parent getAccountRoot;
-    private Scene getAccountScene;
-    private final FXMLLoader accountLoader = new FXMLLoader(getClass().getResource("FXMLFiles/accountsScene.fxml"));
+    private Parent themeSelectRoot;
+    private Scene themeSelectScene;
+    private final FXMLLoader themeSelectLoader = new FXMLLoader(getClass().getResource("FXMLFiles/themeSelect.fxml"));
     private final FXMLLoader specialMenuLoader = new FXMLLoader(getClass().getResource("FXMLFiles/specialMainMenu.fxml"));
     /**
      * Method used in setting the Parent getAccountRoot in the class mainMenuController.
-     * @param getAccountRoot The Group to be set.
+     * @param themeSelectRoot The Group to be set.
      */
-    public void setGetAccountRoot(Parent getAccountRoot) {
-        this.getAccountRoot = getAccountRoot;
+    public void setThemeSelectRoot(Parent themeSelectRoot) {
+        this.themeSelectRoot = themeSelectRoot;
     }
     /**
      * Method used in setting the Scene getAccountScene in the class mainMenuController.
-     * @param getAccountScene The Scene to be set.
+     * @param themeSelectScene The Scene to be set.
      */
-    public void setGetAccountScene(Scene getAccountScene) {
-        this.getAccountScene = getAccountScene;
+    public void setThemeSelectScene(Scene themeSelectScene) {
+        this.themeSelectScene = themeSelectScene;
     }
     /**
      * Method that switches the scene from the main menu scene to the profile selection scene.
@@ -37,10 +37,10 @@ public class mainMenuController extends sceneController {
      */
     @Override
     public void switchToScene() throws IOException {
-        setGetAccountRoot(accountLoader.load());
-        setGetAccountScene(new Scene(getAccountRoot, Main.WIDTH, Main.HEIGHT));
-        getAccountScene.getStylesheets().add(css);
-        primaryStage.setScene(getAccountScene);
+        setThemeSelectRoot(themeSelectLoader.load());
+        setThemeSelectScene(new Scene(themeSelectRoot, Main.WIDTH, Main.HEIGHT));
+        themeSelectScene.getStylesheets().add(cssLight);
+        primaryStage.setScene(themeSelectScene);
     }
     /**
      * Method to switch to special scene when the Easter egg has been activated, method loads the FXML file for the
@@ -50,7 +50,7 @@ public class mainMenuController extends sceneController {
         try {
             Parent specialMenuRoot = specialMenuLoader.load();
             Scene specialMenuScene = new Scene(specialMenuRoot, Main.WIDTH, Main.HEIGHT);
-            specialMenuScene.getStylesheets().add(css);
+            specialMenuScene.getStylesheets().add(cssLight);
             primaryStage.setScene(specialMenuScene);
         }catch (Exception e){
             e.printStackTrace();

@@ -55,7 +55,7 @@ public class Main extends Application{
         bgMusicPlayer_nor.play();
         Parent menuRoot = loader.load();
         Scene menuScene = new Scene(menuRoot, WIDTH, HEIGHT);
-        String css = this.getClass().getResource("Controllers/FXMLFiles/menuStyle.css").toExternalForm();
+        String css = this.getClass().getResource("Controllers/FXMLFiles/menuStyleLight.css").toExternalForm();
         mainMenuController sceneController = loader.getController();
         menuScene.getStylesheets().add(css);
         menuScene.setOnKeyPressed(new EventHandler<KeyEvent>() {

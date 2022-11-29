@@ -1,6 +1,7 @@
 package com.example.demo.gameElements;
 
 import com.example.demo.Main;
+import com.example.demo.Observer;
 import javafx.scene.Group;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
@@ -11,7 +12,8 @@ import javafx.scene.text.Font;
  * the background rectangle for the playing field to enhance visibility. The class is not interactive by nature and it's functionalities are purely for aesthetics.
  * @author Zhen Lin Wong
  */
-public class gameVisuals {
+public class gameVisuals extends Observer {
+    private boolean darkMode=false;
     /**
      * Method for initializing the Score text for the score board. Only used to indicate the actual position of the score counter.
      * @param root cluster of elements that shall appear in the game scene. Method will add the Score text to it.
@@ -67,5 +69,10 @@ public class gameVisuals {
         border.relocate(800, 85);
         root.getChildren().add(scoreRekt);
         scoreRekt.relocate(805, 90);
+    }
+
+    @Override
+    public void update(boolean state) {
+
     }
 }

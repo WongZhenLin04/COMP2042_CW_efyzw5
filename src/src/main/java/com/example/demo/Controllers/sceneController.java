@@ -1,5 +1,6 @@
 package com.example.demo.Controllers;
 
+import com.example.demo.Subject;
 import javafx.event.Event;
 import javafx.scene.Node;
 import javafx.stage.Stage;
@@ -12,10 +13,14 @@ import java.io.IOException;
  * to prevent any other classes (apart from inheriting classes) from manipulating the data within.
  * @author Zhen Lin Wong-modified
 */
-abstract public class sceneController {
+abstract public class sceneController extends Subject {
     private int DogeKeysPressed=0;
     protected Stage primaryStage;
-    protected String css = this.getClass().getResource("FXMLFiles/menuStyle.css").toExternalForm();
+    protected String cssLight = this.getClass().getResource("FXMLFiles/menuStyleLight.css").toExternalForm();
+    protected void setDarkMode(boolean darkMode) {
+        this.darkMode = darkMode;
+    }
+    protected boolean darkMode=false;
     /**
      * Returns the amount of correct keys pressed in the main menu to activate the Easter egg
      * @return the amount of correct keys pressed. Resets when a wrong key is pressed

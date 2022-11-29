@@ -1,7 +1,6 @@
 package com.example.demo.Controllers;
 
 import com.example.demo.Main;
-import com.example.demo.gameElements.GameScene;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -12,13 +11,13 @@ import javafx.scene.control.ChoiceBox;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class themeSelectController extends sceneController implements Initializable {
     @FXML
     private ChoiceBox<String> themeSelectBox;
     private final String[] themes = {"Dark Mode","Light Mode"};
-    private static String choice="Light Mode";
     private Parent profileSelectRoot;
     private Scene profileSelectScene;
     private final FXMLLoader profileSelectLoader = new FXMLLoader(getClass().getResource("FXMLFiles/accountsScene.fxml"));
@@ -26,7 +25,11 @@ public class themeSelectController extends sceneController implements Initializa
     public void switchToScene() throws IOException {
         setProfileSelectRoot(profileSelectLoader.load());
         setProfileSelectScene(new Scene(profileSelectRoot, Main.WIDTH, Main.HEIGHT));
-        profileSelectScene.getStylesheets().add(cssLight);
+        if(!darkMode) {
+            profileSelectScene.getStylesheets().add(cssLight);
+        }else {
+            profileSelectScene.getStylesheets().add(cssDark);
+        }
         primaryStage.setScene(profileSelectScene);
     }
     public void setProfileSelectRoot(Parent profileSelectRoot) {
@@ -41,6 +44,10 @@ public class themeSelectController extends sceneController implements Initializa
         themeSelectBox.setOnAction(this::getChoice);
     }
     public void getChoice(ActionEvent event){
-        
+        String choice=themeSelectBox.getValue();
+        if (Objects.equals(choice, "Dark Mode")){
+            super.darkMode=true;
+        }
+        System.out.println(super.darkMode);
     }
 }

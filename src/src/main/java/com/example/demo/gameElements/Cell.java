@@ -8,6 +8,7 @@ import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import java.io.File;
+import static com.example.demo.Controllers.sceneController.*;
 /**
  * This class is used in instantiating the tiles we see on the game scene with the dimension that the user has chosen (that being nxn dimensions). The class also has the responsibility of setting the contents of a given cell (i.e. the number displayed and the colour of the cell) and is also responsible for the addition function for when two of the same tiles collide. It is important to note that the terms tiles and cells are used interchangeably. The actual generation of the numbers to be displayed aren't handled by this class, but it is responsible for getting the actual value of the cell for the use of other classes.
  * @author Zhen Lin Wong-modified
@@ -60,7 +61,12 @@ public class Cell extends Observer {
         rectangle.setHeight(scale);
         rectangle.setWidth(scale);
         this.root = root;
-        rectangle.setFill(Color.rgb(252, 252, 252));
+        if(!isDarkMode()) {
+            rectangle.setFill(Color.rgb(252, 252, 252));
+        }
+        else {
+            rectangle.setFill(Color.rgb(150,150,150));
+        }
         this.textClass = TextMaker.getSingleInstance().madeText("0", x, y);
         root.getChildren().add(rectangle);
     }
@@ -106,7 +112,12 @@ public class Cell extends Observer {
     public void setColorByNumber(int number) {
         switch (number) {
             case 0:
-                rectangle.setFill(Color.rgb(252, 252, 252));
+                if(!isDarkMode()) {
+                    rectangle.setFill(Color.rgb(252, 252, 252));
+                }
+                else {
+                    rectangle.setFill(Color.rgb(150,150,150));
+                }
                 break;
             case 2:
                 if(!dogeMode) {

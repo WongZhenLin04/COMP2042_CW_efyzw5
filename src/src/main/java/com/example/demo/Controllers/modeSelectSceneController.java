@@ -72,13 +72,26 @@ public class modeSelectSceneController extends sceneController implements Initia
      */
     @Override
     public void switchToScene() {
-        Image Bg = new Image(new File("COMP2042_CW_efyzw5-main\\src\\src\\main\\resources\\com\\example\\demo\\back_nor.jpg").toURI().toString());
-        ImageView pat = new ImageView(Bg);
-        setGameRoot(new Group(pat));
-        setGameScene(new Scene(gameRoot, Main.WIDTH, Main.HEIGHT, Color.rgb(246,250,249)));
+        Image Bg;
+        if (!darkMode) {
+            Bg = new Image(new File("COMP2042_CW_efyzw5-main\\src\\src\\main\\resources\\com\\example\\demo\\back_nor.jpg").toURI().toString());
+            ImageView pat = new ImageView(Bg);
+            setGameRoot(new Group(pat));
+            setGameScene(new Scene(gameRoot, Main.WIDTH, Main.HEIGHT, Color.rgb(246, 250, 249)));
+        }
+        else {
+            setGameRoot(new Group());
+            setGameScene(new Scene(gameRoot, Main.WIDTH, Main.HEIGHT, Color.rgb(105,105,105)));
+        }
         GameScene game = new GameScene();
         Group endgameRoot = new Group();
-        Scene endGameScene = new Scene(endgameRoot, Main.WIDTH, Main.HEIGHT, Color.rgb(240, 240, 240));
+        Scene endGameScene;
+        if(!darkMode) {
+            endGameScene = new Scene(endgameRoot, Main.WIDTH, Main.HEIGHT, Color.rgb(240, 240, 240));
+        }
+        else {
+            endGameScene = new Scene(endgameRoot, Main.WIDTH, Main.HEIGHT, Color.rgb(150,150,150));
+        }
         game.game(gameScene, gameRoot, primaryStage, endGameScene, endgameRoot);
         primaryStage.setScene(gameScene);
     }

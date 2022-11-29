@@ -1,19 +1,18 @@
 package com.example.demo.gameElements;
 
 import com.example.demo.Main;
-import com.example.demo.Observer;
 import javafx.scene.Group;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
-import javafx.scene.text.Text;
 import javafx.scene.text.Font;
+import javafx.scene.text.Text;
+import static com.example.demo.Controllers.sceneController.*;
 /**
  * This class' main functionality is to display the visual elements within the game scene, those being mainly the score board coupled with the score text and
  * the background rectangle for the playing field to enhance visibility. The class is not interactive by nature and it's functionalities are purely for aesthetics.
  * @author Zhen Lin Wong
  */
-public class gameVisuals extends Observer {
-    private boolean darkMode=false;
+public class gameVisuals {
     /**
      * Method for initializing the Score text for the score board. Only used to indicate the actual position of the score counter.
      * @param root cluster of elements that shall appear in the game scene. Method will add the Score text to it.
@@ -23,7 +22,12 @@ public class gameVisuals extends Observer {
         root.getChildren().add(text);
         text.setText("SCORE :");
         text.setFont(Font.font(30));
-        text.setFill(Color.rgb(81, 84, 82));
+        if(!isDarkMode()) {
+            text.setFill(Color.rgb(81, 84, 82));
+        }
+        else {
+            text.setFill(Color.rgb(246, 250, 249));
+        }
         text.relocate(850, 100);
     }
     /**
@@ -35,7 +39,12 @@ public class gameVisuals extends Observer {
         root.getChildren().add(text);
         text.relocate(900, 200);
         text.setFont(Font.font(20));
-        text.setFill(Color.rgb(81, 84, 82));
+        if(!isDarkMode()) {
+            text.setFill(Color.rgb(81, 84, 82));
+        }
+        else {
+            text.setFill(Color.rgb(246, 250, 249));
+        }
         text.setText("0");
     }
     /**
@@ -59,7 +68,12 @@ public class gameVisuals extends Observer {
     public void makeScoreRekt(Group root){
         Rectangle scoreRekt = new Rectangle();
         Rectangle border = new Rectangle();
-        scoreRekt.setFill(Color.rgb(252, 252, 252));
+        if(!isDarkMode()) {
+            scoreRekt.setFill(Color.rgb(252, 252, 252));
+        }
+        else {
+            scoreRekt.setFill(Color.rgb(150,150,150));
+        }
         border.setFill(Color.rgb(153, 173, 168));
         scoreRekt.setWidth(250);
         scoreRekt.setHeight(150);
@@ -71,8 +85,4 @@ public class gameVisuals extends Observer {
         scoreRekt.relocate(805, 90);
     }
 
-    @Override
-    public void update(boolean state) {
-
-    }
 }

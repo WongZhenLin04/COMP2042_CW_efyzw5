@@ -13,14 +13,15 @@ import java.io.IOException;
  * to prevent any other classes (apart from inheriting classes) from manipulating the data within.
  * @author Zhen Lin Wong-modified
 */
-abstract public class sceneController extends Subject {
+abstract public class sceneController{
     private int DogeKeysPressed=0;
     protected Stage primaryStage;
     protected String cssLight = this.getClass().getResource("FXMLFiles/menuStyleLight.css").toExternalForm();
-    protected void setDarkMode(boolean darkMode) {
-        this.darkMode = darkMode;
+    protected String cssDark = this.getClass().getResource("FXMLFiles/menuStyleDark.css").toExternalForm();
+    public static boolean isDarkMode() {
+        return darkMode;
     }
-    protected boolean darkMode=false;
+    protected static boolean darkMode=false;
     /**
      * Returns the amount of correct keys pressed in the main menu to activate the Easter egg
      * @return the amount of correct keys pressed. Resets when a wrong key is pressed

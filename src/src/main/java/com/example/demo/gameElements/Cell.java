@@ -19,6 +19,10 @@ public class Cell extends Observer {
     private Text textClass;
     private boolean dogeMode;
     private boolean modify = false;
+    /**
+     * Method used in getting the container of the text which is just a rectangle.
+     * @return The container of the numbers.
+     */
     public Rectangle getRectangle() {
         return rectangle;
     }

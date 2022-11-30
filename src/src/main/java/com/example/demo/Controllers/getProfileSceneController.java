@@ -37,6 +37,9 @@ public class getProfileSceneController extends sceneController implements Initia
     private TextField accountTextBox;
     @FXML
     private ChoiceBox<String> accountSelect;
+    /**
+     * Constructor of the class, initializes the list of accounts available to prevent multiple reads of the accounts file.
+     */
     public getProfileSceneController(){
         readAccounts();
     }
@@ -118,6 +121,10 @@ public class getProfileSceneController extends sceneController implements Initia
     public void getChoice(ActionEvent event){
         accountName = accountSelect.getValue();
     }
+    /**
+     * Method that checks the user submitted name (if it is already in the account file or null), appends it to the account file if valid and switches to the mode select scene.
+     * @param event Event when button is clicked.
+     */
     public void submitName(ActionEvent event){
         newName = accountTextBox.getText();
         if(accounts.contains(newName)){

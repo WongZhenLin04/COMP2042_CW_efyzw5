@@ -25,35 +25,36 @@ COMP2042_CW_efyzw5-main\src\src\main\resources\com\example\demo\JavaDoc
 8. A win condition that changes the text on the end game screen.
 9. A high score indicator which lets the user know when a new high score is set.
 10. Tile colours have been changed to the original 2048 colour scheme.
+11. The ability for users to input new accounts has been added 
 - Bug fixes
-1. Score is now based on the number of merges per move.
-2. Cells are only filled with values if a move is not a static move.
-3. Positioning of the cells and Scoreboard have been changed.
-4. Score does not increment on every button press now.
-5. Win condition does not require the entire board to be filled anymore.
+12. Score is now based on the number of merges per move.
+13. Cells are only filled with values if a move is not a static move.
+14. Positioning of the cells and Scoreboard have been changed.
+15. Score does not increment on every button press now.
+16. Win condition does not require the entire board to be filled anymore.
 - Features not fully implemented
-1. No way to formally add a new profile. This is due to the fact that there will involve a lot more logistics and working with only simple .txt file reading will require a lot more resources.
-2. In a similar vein as 1, the account scene is not implemented due to the resources required would make the whole structure too complex.
+17. The account scene is not implemented due to the resources required would make the whole structure too complex and that it would be redundant as there wouldn't be much to display.
 - List of new classes
-1. sceneController
-2. getProfileSceneController
-3. mainMenuController
-4. modeSelectSceneController
-5. endGameVisuals
-6. highScore
-7. generalMovement
-8. stateChecker
-9. tileChecker
-10. tileMovement
-11. gameVisuals
-12. Observer
-13. Subject 
+18. sceneController
+19. getProfileSceneController
+20. mainMenuController
+21. modeSelectSceneController
+22. endGameVisuals
+23. highScore
+24. generalMovement
+25. stateChecker
+26. tileChecker
+27. tileMovement
+28. gameVisuals
+29. Observer
+30. Subject 
+31. themeSelectController
 - Classes that were modified
-1. EndGame
-2. GameScene
-3. Cell
-4. Main
-5. TextMaker
-6. Controller
+32. EndGame
+33. GameScene
+34. Cell
+35. Main
+36. TextMaker
+37. Controller
 
 

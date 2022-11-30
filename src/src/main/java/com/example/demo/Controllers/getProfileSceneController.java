@@ -1,5 +1,4 @@
 package com.example.demo.Controllers;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -7,14 +6,15 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ChoiceBox;
-
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 import java.util.Scanner;
-
 import static com.example.demo.Main.HEIGHT;
 import static com.example.demo.Main.WIDTH;
 /**
@@ -29,8 +29,17 @@ public class getProfileSceneController extends sceneController implements Initia
     private final FXMLLoader modeSelLoader = new FXMLLoader(getClass().getResource("FXMLFiles/gameModeSelect.fxml"));
     private static String accountName="No Name";
     private ArrayList<String> accounts =new ArrayList<String>();
+    private String newName;
+    private final File accountFile = new File("COMP2042_CW_efyzw5-main\\src\\src\\main\\resources\\com\\example\\demo\\Accounts.txt");
+    @FXML
+    private Label nameLabel;
+    @FXML
+    private TextField accountTextBox;
     @FXML
     private ChoiceBox<String> accountSelect;
+    public getProfileSceneController(){
+        readAccounts();
+    }
     /**
      * Method used in setting the modeRoot to the input Parent "setModeRoot".
      * @param setModeRoot input Parent in which the user wants to set modeSelectRoot to.
@@ -84,7 +93,6 @@ public class getProfileSceneController extends sceneController implements Initia
      */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        readAccounts();
         accountSelect.getItems().addAll(accounts.toArray(new String[accounts.size()]));
         accountSelect.setOnAction(this::getChoice);
     }
@@ -94,7 +102,6 @@ public class getProfileSceneController extends sceneController implements Initia
      */
     public void readAccounts(){
         try {
-            File accountFile = new File("COMP2042_CW_efyzw5-main\\src\\src\\main\\resources\\com\\example\\demo\\Accounts.txt");
             Scanner reader = new Scanner(accountFile);
             while (reader.hasNextLine()){
                 accounts.add(reader.nextLine());
@@ -103,7 +110,6 @@ public class getProfileSceneController extends sceneController implements Initia
             e.printStackTrace();
         }
     }
-
     /**
      * Method that sets the variable "accountName" to the user's selected account when a choice in the choice box has been made.
      * The event that is being referenced here is the event of the user making a choice.
@@ -111,5 +117,29 @@ public class getProfileSceneController extends sceneController implements Initia
      */
     public void getChoice(ActionEvent event){
         accountName = accountSelect.getValue();
+    }
+    public void submitName(ActionEvent event){
+        newName = accountTextBox.getText();
+        if(accounts.contains(newName)){
+            nameLabel.setText("Already in accounts, Try another name!");
+        }else if(newName.isEmpty()){
+            nameLabel.setText("Don't submit empty names!");
+        }else {
+            try{
+                FileWriter accountApp = new FileWriter(accountFile,true);
+                accountApp.write("\n"+newName);
+                accountApp.close();
+            }catch (Exception e){
+                e.printStackTrace();
+            }finally {
+                accountName=newName;
+                try {
+                    detectEvent(event);
+                }catch (Exception e){
+                    e.printStackTrace();
+                }
+            }
+
+        }
     }
 }

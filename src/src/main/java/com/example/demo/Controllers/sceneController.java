@@ -1,6 +1,5 @@
 package com.example.demo.Controllers;
 
-import com.example.demo.Subject;
 import javafx.event.Event;
 import javafx.scene.Node;
 import javafx.stage.Stage;

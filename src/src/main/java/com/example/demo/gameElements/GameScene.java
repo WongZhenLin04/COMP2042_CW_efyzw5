@@ -187,7 +187,7 @@ public class GameScene extends Subject {
                         if (stateChecker.canNotMove(cells)) {
                             primaryStage.setScene(endGameScene);
                             EndGame endGame = new EndGame('l');
-                            endGame.endGameShow(endGameRoot, score);
+                            endGame.endGameShow(endGameRoot, score,primaryStage);
                             root.getChildren().clear();
                             score = 0;
                         }
@@ -195,7 +195,7 @@ public class GameScene extends Subject {
                     if (haveEmptyCell==0){
                         primaryStage.setScene(endGameScene);
                         EndGame endGame = new EndGame('w');
-                        endGame.endGameShow(endGameRoot, score);
+                        endGame.endGameShow(endGameRoot, score,primaryStage);
                         root.getChildren().clear();
                         score = 0;
                     }

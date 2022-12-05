@@ -5,6 +5,8 @@ import javafx.scene.Group;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
+
 import java.util.Optional;
 /**
  * The main class for the end game scene itself and is the core for all operations relating to the end game scene, albeit there only being a few functionalities. The decisions in
@@ -31,7 +33,7 @@ public class EndGame {
      * @param root the container of the elements in which shall be displayed on the scene
      * @param score the score that the user has set on their play through of the game before losing
      */
-    public void endGameShow(Group root, long score){
+    public void endGameShow(Group root, long score, Stage primaryStage){
         endGameVisuals.makeBgRekt(root);
         highScore.setHighscore(score, root);
         if(cond=='l'){
@@ -52,7 +54,7 @@ public class EndGame {
 
                 Optional<ButtonType> result = alert.showAndWait();
                 if (result.get() == ButtonType.OK){
-                    root.getChildren().clear();
+                    primaryStage.hide();
                 }
             }
         });

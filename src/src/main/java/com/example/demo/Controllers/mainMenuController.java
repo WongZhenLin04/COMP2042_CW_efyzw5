@@ -12,10 +12,36 @@ import java.io.IOException;
  * @author Zhen Lin Wong
  */
 public class mainMenuController extends sceneController {
+    private int DogeKeysPressed=0;
     private Parent themeSelectRoot;
     private Scene themeSelectScene;
     private final FXMLLoader themeSelectLoader = new FXMLLoader(getClass().getResource("FXMLFiles/themeSelect.fxml"));
     private final FXMLLoader specialMenuLoader = new FXMLLoader(getClass().getResource("FXMLFiles/specialMainMenu.fxml"));
+    /**
+     * Returns the amount of correct keys pressed in the main menu to activate the Easter egg
+     * @return the amount of correct keys pressed. Resets when a wrong key is pressed
+     */
+    public int getDogeKeysPressed() {
+        return DogeKeysPressed;
+    }
+    /**
+     * Method is used when the user presses the correct key.
+     * @param dogeKeysPressed amount of times the correct key has been pressed in the main menu
+     */
+    public void setDogeKeysPressed(int dogeKeysPressed) {
+        this.DogeKeysPressed = dogeKeysPressed;
+    }
+    /**
+     * Method is used to increment the amount of times the user has pressed the correct key to trigger the Easter egg by 1.
+     * Only ever used when one key is pressed, there should be no way that the user is able to press two more or more keys at the same time
+     */
+    public void dogeKeyIncrement() {
+        this.DogeKeysPressed += 1;
+    }
+    /**
+     * Method used by other classes to switch scenes, done so by setting the primary stage to the desired scene with its corresponding elements.
+     * @param primaryStage the stage in which all scenes play out and is the main window for the game.
+     */
     /**
      * Method used in setting the Parent getAccountRoot in the class mainMenuController.
      * @param themeSelectRoot The Group to be set.

@@ -8,7 +8,9 @@ The following describes the details of the coursework that was assigned to in th
 3. Open IntelliJ and go to the navigation bar -> File -> Project structure -> Project -> SDK and select SDK version 17 or higher
 4. Click on “Libraries” -> “+” sign -> Java and direct it to the directory of the extracted folder.
 5. Click on “lib” then click ok.
-6. Exit project structure and go to the main class. Build and run the code.
+6. Exit project structure and go to any of the test classes under "JunitTest".
+7. import and add any dependencies the IDE might tell you to add.
+8. Go to main and run!
 
 ## JavaDoc location
 COMP2042_CW_efyzw5-main\src\src\main\resources\com\example\demo\JavaDoc

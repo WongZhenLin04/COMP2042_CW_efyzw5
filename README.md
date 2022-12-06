@@ -51,6 +51,7 @@ COMP2042_CW_efyzw5-main\src\src\main\resources\com\example\demo\JavaDoc
 12. Observer
 13. Subject 
 14. themeSelectController
+15. switchToEndGame 
 - Classes that were modified
 1. EndGame
 2. GameScene

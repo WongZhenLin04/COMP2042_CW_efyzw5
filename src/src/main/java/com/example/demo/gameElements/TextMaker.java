@@ -1,6 +1,6 @@
 package com.example.demo.gameElements;
 
-import com.example.demo.Observer;
+import com.example.demo.DogeObserver;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
@@ -10,7 +10,7 @@ import javafx.scene.text.Text;
  * The class is mainly called upon by the game scene and the cell class as both of these classes needs the text inside the cells to be manipulated (visually) inorder to operate as indented.
  * @author Zhen Lin Wong - modified
  */
-public class TextMaker extends Observer {
+public class TextMaker extends DogeObserver {
     private boolean dogeMode;
     private static TextMaker singleInstance = null;
     /**

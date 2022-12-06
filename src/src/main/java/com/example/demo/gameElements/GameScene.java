@@ -3,7 +3,7 @@ package com.example.demo.gameElements;
 import com.example.demo.Controllers.gameSceneControlllers.fillPlayingField;
 import com.example.demo.Controllers.gameSceneControlllers.switchToEndGame;
 import com.example.demo.Main;
-import com.example.demo.Subject;
+import com.example.demo.DogeSubject;
 import com.example.demo.Controllers.gameSceneControlllers.stateChecker;
 import com.example.demo.Controllers.gameSceneControlllers.tileMovement;
 import javafx.application.Platform;
@@ -14,13 +14,12 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-import java.util.Random;
 /**
  * This class is the main class for all operations that shall be orchestrated within the game scene (i.e. calling the correct class and the correct method at the appropriate time) to ensure all functions as intended when the user is playing through the game.
  * Mainly the what, how and the order in which the elements shall appear in will be determined here.The class is instantiated whenever the user has made a choice in their mode that they wish to play.
  * @author Zhen Lin Wong-modified
  */
-public class GameScene extends Subject {
+public class GameScene extends DogeSubject {
     public static final int HEIGHT = 700;
     protected static int n = 4;
     public final static int distanceBetweenCells = 10;

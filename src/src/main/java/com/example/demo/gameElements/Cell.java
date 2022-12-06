@@ -1,6 +1,6 @@
 package com.example.demo.gameElements;
 
-import com.example.demo.Observer;
+import com.example.demo.DogeObserver;
 import javafx.scene.Group;
 import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
@@ -13,7 +13,7 @@ import static com.example.demo.Controllers.sceneController.*;
  * This class is used in instantiating the tiles we see on the game scene with the dimension that the user has chosen (that being nxn dimensions). The class also has the responsibility of setting the contents of a given cell (i.e. the number displayed and the colour of the cell) and is also responsible for the addition function for when two of the same tiles collide. It is important to note that the terms tiles and cells are used interchangeably. The actual generation of the numbers to be displayed aren't handled by this class, but it is responsible for getting the actual value of the cell for the use of other classes.
  * @author Zhen Lin Wong-modified
  */
-public class Cell extends Observer {
+public class Cell extends DogeObserver {
     private Rectangle rectangle;
     private Group root;
     private Text textClass;

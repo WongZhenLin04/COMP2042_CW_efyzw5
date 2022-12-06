@@ -3,7 +3,6 @@ package com.example.demo.gameElements;
 import com.example.demo.Controllers.gameSceneControlllers.switchToEndGame;
 import com.example.demo.Main;
 import com.example.demo.Subject;
-import com.example.demo.endGameElements.EndGame;
 import com.example.demo.Controllers.gameSceneControlllers.stateChecker;
 import com.example.demo.Controllers.gameSceneControlllers.tileMovement;
 import javafx.application.Platform;
@@ -185,7 +184,7 @@ public class GameScene extends Subject {
                         if (stateChecker.canNotMove(cells)) {
                             try {
                                 switchToEndGame switcheroo = new switchToEndGame(haveEmptyCell,score,primaryStage);
-                                switcheroo.switchToScene();
+                                switcheroo.switchToEndGame();
                             }catch (Exception e){
                                 e.printStackTrace();
                             }
@@ -197,7 +196,7 @@ public class GameScene extends Subject {
                         if (stateChecker.canNotMove(cells)) {
                             try {
                                 switchToEndGame switcheroo = new switchToEndGame(haveEmptyCell,score,primaryStage);
-                                switcheroo.switchToScene();
+                                switcheroo.switchToEndGame();
                             }catch (Exception e){
                                 e.printStackTrace();
                             }

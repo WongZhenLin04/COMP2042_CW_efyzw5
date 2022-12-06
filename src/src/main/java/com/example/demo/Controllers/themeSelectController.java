@@ -15,7 +15,7 @@ import java.util.ResourceBundle;
  * Class that handles the events within the scene "themeSelect". Mainly notifying the appropriate classes of the mode the user has chosen.
  * @author Zhen Lin Wong
  */
-public class themeSelectController extends sceneController implements Initializable {
+public class themeSelectController extends choiceBoxController {
     @FXML
     private ChoiceBox<String> themeSelectBox;
     private final String[] themes = {"Dark Mode","Light Mode"};
@@ -64,6 +64,7 @@ public class themeSelectController extends sceneController implements Initializa
      * Method that gets the choice of the user once button is clicked.
      * @param event Detects when the button is clicked on and when user makes a choice.
      */
+    @Override
     public void getChoice(ActionEvent event){
         String choice=themeSelectBox.getValue();
         if (Objects.equals(choice, "Dark Mode")){

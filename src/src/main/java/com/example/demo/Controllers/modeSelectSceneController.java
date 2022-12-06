@@ -22,7 +22,7 @@ import java.util.ResourceBundle;
  * selection within the choice box.
  * @author Zhen Lin Wong
  */
-public class modeSelectSceneController extends sceneController implements Initializable {
+public class modeSelectSceneController extends choiceBoxController {
     private Group gameRoot;
     private Scene gameScene;
     @FXML
@@ -50,13 +50,7 @@ public class modeSelectSceneController extends sceneController implements Initia
     public void setGameScene(Scene gameScene) {
         this.gameScene = gameScene;
     }
-    /**
-     * Methods that sets the preferred dimension of the user. Used only in test cases.
-     * @param choice The choice the user wishes to play in.
-     */
-    public static void setChoice(String choice) {
-        modeSelectSceneController.choice = choice;
-    }
+
     /**
      * Method for getting the mode of choice that the user has, used by some classes to determine the next course of action.
      * This method is static due to the fact that a number of classes need to access this method.
@@ -103,6 +97,7 @@ public class modeSelectSceneController extends sceneController implements Initia
      * field. The choice is passed from the choice box within the scene.
      * @param event user's event of choosing their preferred game mode.
      */
+    @Override
     public void getChoice(ActionEvent event){
         choice = modeSelectBox.getValue();
         switch (choice){

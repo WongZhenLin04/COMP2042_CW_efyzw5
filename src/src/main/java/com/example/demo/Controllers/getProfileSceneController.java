@@ -23,7 +23,7 @@ import static com.example.demo.Main.WIDTH;
  * , getting the user's choice from the aforementioned box and switching from the profile select scene to the mode select screen.
  * @author Zhen Lin Wong
  */
-public class getProfileSceneController extends sceneController implements Initializable {
+public class getProfileSceneController extends choiceBoxController {
     private Parent modeRoot;
     private Scene modeScene;
     private final FXMLLoader modeSelLoader = new FXMLLoader(getClass().getResource("FXMLFiles/gameModeSelect.fxml"));
@@ -118,6 +118,7 @@ public class getProfileSceneController extends sceneController implements Initia
      * The event that is being referenced here is the event of the user making a choice.
      * @param event used in the FXML file to detect when the user has made a choice.
      */
+    @Override
     public void getChoice(ActionEvent event){
         accountName = accountSelect.getValue();
     }

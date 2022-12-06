@@ -84,15 +84,7 @@ public class modeSelectSceneController extends sceneController implements Initia
             setGameScene(new Scene(gameRoot, Main.WIDTH, Main.HEIGHT, Color.rgb(105,105,105)));
         }
         GameScene game = new GameScene();
-        Group endgameRoot = new Group();
-        Scene endGameScene;
-        if(!darkMode) {
-            endGameScene = new Scene(endgameRoot, Main.WIDTH, Main.HEIGHT, Color.rgb(240, 240, 240));
-        }
-        else {
-            endGameScene = new Scene(endgameRoot, Main.WIDTH, Main.HEIGHT, Color.rgb(150,150,150));
-        }
-        game.game(gameScene, gameRoot, primaryStage, endGameScene, endgameRoot);
+        game.game(gameScene, gameRoot,primaryStage);
         primaryStage.setScene(gameScene);
     }
     /**

@@ -1,5 +1,6 @@
 package com.example.demo.gameElements;
 
+import com.example.demo.Controllers.gameSceneControlllers.switchToEndGame;
 import com.example.demo.Main;
 import com.example.demo.Subject;
 import com.example.demo.endGameElements.EndGame;
@@ -122,11 +123,8 @@ public class GameScene extends Subject {
      * to the situation. Method mainly utilizes all the utility methods from the utility package in order to achieve a coherent experience.
      * @param gameScene The scene that shall be filled with the correct elements in the correct order by the method.
      * @param root cluster of elements that shall appear in the game scene. Will be filled by the method.
-     * @param primaryStage the stage in which all scenes play out and is the main window for the game.
-     * @param endGameScene The endgame Scene for the game, used to instantiate the end game scene when user wins or losses.
-     * @param endGameRoot The endgame Group for the game, used to instantiate the elements in the end game when user wins or losses.
      */
-    public void game(Scene gameScene, Group root, Stage primaryStage, Scene endGameScene, Group endGameRoot) {
+    public void game(Scene gameScene, Group root,Stage primaryStage) {
         notifyAllObservers(Main.isDogeMode());
         root.setLayoutX(150.0);
         root.setLayoutY(25);
@@ -185,19 +183,27 @@ public class GameScene extends Subject {
                     haveEmptyCell = stateChecker.haveEmptyCell(cells,n);
                     if (haveEmptyCell == -1) {
                         if (stateChecker.canNotMove(cells)) {
-                            primaryStage.setScene(endGameScene);
-                            EndGame endGame = new EndGame('l');
-                            endGame.endGameShow(endGameRoot, score,primaryStage);
+                            try {
+                                switchToEndGame switcheroo = new switchToEndGame(haveEmptyCell,score,primaryStage);
+                                switcheroo.switchToScene();
+                            }catch (Exception e){
+                                e.printStackTrace();
+                            }
                             root.getChildren().clear();
                             score = 0;
                         }
                     }
                     if (haveEmptyCell==0){
-                        primaryStage.setScene(endGameScene);
-                        EndGame endGame = new EndGame('w');
-                        endGame.endGameShow(endGameRoot, score,primaryStage);
-                        root.getChildren().clear();
-                        score = 0;
+                        if (stateChecker.canNotMove(cells)) {
+                            try {
+                                switchToEndGame switcheroo = new switchToEndGame(haveEmptyCell,score,primaryStage);
+                                switcheroo.switchToScene();
+                            }catch (Exception e){
+                                e.printStackTrace();
+                            }
+                            root.getChildren().clear();
+                            score = 0;
+                        }
                     }
                 });
             });

@@ -10,6 +10,7 @@ The following describes the details of the coursework that was assigned to in th
 3. Go to the navigation bar -> File -> Project structure -> Project -> SDK and select SDK version 17 or higher
 4. Click on “Libraries” -> “+” sign -> Java and direct it to the directory of the extracted folder.
 5. Click on “lib” then click ok.
+6. Go to "Modules" and click on JunitTest and mark it as "Tests"
 6. Exit project structure and go to any of the test classes under "JunitTest".
 7. import and add any dependencies the IDE might tell you to add.
 8. Go to main and run!

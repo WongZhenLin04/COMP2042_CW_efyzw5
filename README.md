@@ -5,12 +5,17 @@ The following describes the details of the coursework that was assigned to in th
 - if JavaFX is not installed
 1. Download javaFX from the site https://gluonhq.com/products/javafx/  
 2. Extracted the download folder to your directory of choice
-3. Open IntelliJ and go to the navigation bar -> File -> Project structure -> Project -> SDK and select SDK version 17 or higher
+3. download the source code on github, extarct the folder to your directory of choice.
+4. Open intelliJ and open the extracted file
+3. Go to the navigation bar -> File -> Project structure -> Project -> SDK and select SDK version 17 or higher
 4. Click on “Libraries” -> “+” sign -> Java and direct it to the directory of the extracted folder.
 5. Click on “lib” then click ok.
 6. Exit project structure and go to any of the test classes under "JunitTest".
 7. import and add any dependencies the IDE might tell you to add.
 8. Go to main and run!
+
+(in case of file not found error):
+1. In main, under "resourceHeader" delete COMP2042_CW_efyzw5-main\\ 
 
 ## JavaDoc location
 COMP2042_CW_efyzw5-main\src\src\main\resources\com\example\demo\JavaDoc
@@ -48,8 +53,8 @@ COMP2042_CW_efyzw5-main\src\src\main\resources\com\example\demo\JavaDoc
 9. tileChecker
 10. tileMovement
 11. gameVisuals
-12. Observer
-13. Subject 
+12. DogeObserver
+13. DogeSubject 
 14. themeSelectController
 15. switchToEndGame 
 - Classes that were modified

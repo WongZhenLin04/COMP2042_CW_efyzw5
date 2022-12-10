@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.demo.observerPattern;
 
 import java.util.ArrayList;
 import java.util.List;

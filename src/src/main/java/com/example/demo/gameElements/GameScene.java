@@ -3,7 +3,7 @@ package com.example.demo.gameElements;
 import com.example.demo.Controllers.gameSceneControlllers.fillPlayingField;
 import com.example.demo.Controllers.gameSceneControlllers.switchToEndGame;
 import com.example.demo.Main;
-import com.example.demo.DogeSubject;
+import com.example.demo.observerPattern.DogeSubject;
 import com.example.demo.Controllers.gameSceneControlllers.stateChecker;
 import com.example.demo.Controllers.gameSceneControlllers.tileMovement;
 import javafx.application.Platform;

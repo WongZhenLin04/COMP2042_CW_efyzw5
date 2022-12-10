@@ -1,6 +1,6 @@
 package com.example.demo.gameElements;
-
-import com.example.demo.DogeObserver;
+import static com.example.demo.Main.*;
+import com.example.demo.observerPattern.DogeObserver;
 import javafx.scene.Group;
 import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
@@ -127,7 +127,7 @@ public class Cell extends DogeObserver {
                 if(!dogeMode) {
                     rectangle.setFill(Color.rgb(238,228,218));
                 }else {
-                    Image doge2 = new Image(new File("COMP2042_CW_efyzw5-main\\src\\src\\main\\resources\\com\\example\\demo\\2doge.gif").toURI().toString());
+                    Image doge2 = new Image(new File(resourceHeader+"2doge.gif").toURI().toString());
                     ImagePattern doge2View = new ImagePattern(doge2);
                     rectangle.setFill(doge2View);
                 }
@@ -136,7 +136,7 @@ public class Cell extends DogeObserver {
                 if(!dogeMode) {
                     rectangle.setFill(Color.rgb(237,224,200));
                 }else {
-                    Image doge4 = new Image(new File("COMP2042_CW_efyzw5-main\\src\\src\\main\\resources\\com\\example\\demo\\4doge.gif").toURI().toString());
+                    Image doge4 = new Image(new File(resourceHeader+"4doge.gif").toURI().toString());
                     ImagePattern doge4View = new ImagePattern(doge4);
                     rectangle.setFill(doge4View);
                 }
@@ -145,7 +145,7 @@ public class Cell extends DogeObserver {
                 if(!dogeMode) {
                     rectangle.setFill(Color.rgb(242,177,121));
                 }else {
-                    Image doge8 = new Image(new File("COMP2042_CW_efyzw5-main\\src\\src\\main\\resources\\com\\example\\demo\\8doge.gif").toURI().toString());
+                    Image doge8 = new Image(new File(resourceHeader+"8doge.gif").toURI().toString());
                     ImagePattern doge8View = new ImagePattern(doge8);
                     rectangle.setFill(doge8View);
                 }
@@ -154,7 +154,7 @@ public class Cell extends DogeObserver {
                 if(!dogeMode) {
                     rectangle.setFill(Color.rgb(245,149,99));
                 }else {
-                    Image doge16 = new Image(new File("COMP2042_CW_efyzw5-main\\src\\src\\main\\resources\\com\\example\\demo\\16doge.gif").toURI().toString());
+                    Image doge16 = new Image(new File(resourceHeader+"16doge.gif").toURI().toString());
                     ImagePattern doge16View = new ImagePattern(doge16);
                     rectangle.setFill(doge16View);
                 }
@@ -163,7 +163,7 @@ public class Cell extends DogeObserver {
                 if(!dogeMode) {
                     rectangle.setFill(Color.rgb(246,124,96));
                 }else {
-                    Image doge32 = new Image(new File("COMP2042_CW_efyzw5-main\\src\\src\\main\\resources\\com\\example\\demo\\32doge.gif").toURI().toString());
+                    Image doge32 = new Image(new File(resourceHeader+"32doge.gif").toURI().toString());
                     ImagePattern doge32View = new ImagePattern(doge32);
                     rectangle.setFill(doge32View);
                 }
@@ -172,7 +172,7 @@ public class Cell extends DogeObserver {
                 if(!dogeMode) {
                     rectangle.setFill(Color.rgb(246,94,59));
                 }else {
-                    Image doge64 = new Image(new File("COMP2042_CW_efyzw5-main\\src\\src\\main\\resources\\com\\example\\demo\\64doge.gif").toURI().toString());
+                    Image doge64 = new Image(new File(resourceHeader+"64doge.gif").toURI().toString());
                     ImagePattern doge64View = new ImagePattern(doge64);
                     rectangle.setFill(doge64View);
                 }
@@ -181,7 +181,7 @@ public class Cell extends DogeObserver {
                 if(!dogeMode) {
                     rectangle.setFill(Color.rgb(237,207,115));
                 }else {
-                    Image doge128 = new Image(new File("COMP2042_CW_efyzw5-main\\src\\src\\main\\resources\\com\\example\\demo\\128doge.gif").toURI().toString());
+                    Image doge128 = new Image(new File(resourceHeader+"128doge.gif").toURI().toString());
                     ImagePattern doge128View = new ImagePattern(doge128);
                     rectangle.setFill(doge128View);
                 }
@@ -190,7 +190,7 @@ public class Cell extends DogeObserver {
                 if(!dogeMode) {
                     rectangle.setFill(Color.rgb(237,204,98));
                 }else {
-                    Image doge256 = new Image(new File("COMP2042_CW_efyzw5-main\\src\\src\\main\\resources\\com\\example\\demo\\256doge.gif").toURI().toString());
+                    Image doge256 = new Image(new File(resourceHeader+"256doge.gif").toURI().toString());
                     ImagePattern doge256View = new ImagePattern(doge256);
                     rectangle.setFill(doge256View);
                 }
@@ -199,7 +199,7 @@ public class Cell extends DogeObserver {
                 if(!dogeMode) {
                     rectangle.setFill(Color.rgb(237,200,80));
                 }else {
-                    Image doge512 = new Image(new File("COMP2042_CW_efyzw5-main\\src\\src\\main\\resources\\com\\example\\demo\\512doge.gif").toURI().toString());
+                    Image doge512 = new Image(new File(resourceHeader+"512doge.gif").toURI().toString());
                     ImagePattern doge512View = new ImagePattern(doge512);
                     rectangle.setFill(doge512View);
                 }
@@ -208,7 +208,7 @@ public class Cell extends DogeObserver {
                 if(!dogeMode) {
                     rectangle.setFill(Color.rgb(237,197,63));
                 }else {
-                    Image doge1024 = new Image(new File("COMP2042_CW_efyzw5-main\\src\\src\\main\\resources\\com\\example\\demo\\1024doge.gif").toURI().toString());
+                    Image doge1024 = new Image(new File(resourceHeader+"1024doge.gif").toURI().toString());
                     ImagePattern doge1024View = new ImagePattern(doge1024);
                     rectangle.setFill(doge1024View);
                 }
@@ -217,7 +217,7 @@ public class Cell extends DogeObserver {
                 if(!dogeMode) {
                     rectangle.setFill(Color.rgb(237,194,45));
                 }else {
-                    Image doge2048 = new Image(new File("COMP2042_CW_efyzw5-main\\src\\src\\main\\resources\\com\\example\\demo\\2048doge.gif").toURI().toString());
+                    Image doge2048 = new Image(new File(resourceHeader+"2048doge.gif").toURI().toString());
                     ImagePattern doge2048View = new ImagePattern(doge2048);
                     rectangle.setFill(doge2048View);
                 }

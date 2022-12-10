@@ -18,8 +18,8 @@ abstract public class sceneController{
     protected String cssDark = this.getClass().getResource("FXMLFiles/menuStyleDark.css").toExternalForm();
     /**
      * Method to get the status of the DarkMode variable.
-     * @return <code>Dark mode has been activated</code>
-     *         <false>Light mode is activated</false>
+     * @return <code>true</code> Dark mode has been activated
+     *         <code>false</code> Light mode is activated
      */
     public static boolean isDarkMode() {
         return darkMode;

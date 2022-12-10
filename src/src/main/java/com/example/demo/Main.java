@@ -24,9 +24,10 @@ public class Main extends Application{
     public static final int WIDTH = 1250;
     public static final int HEIGHT = 768;
     private static boolean dogeMode=false;
-    private final Media bgMusicMedia_egg = new Media(new File("COMP2042_CW_efyzw5-main\\src\\src\\main\\resources\\com\\example\\demo\\bgMusic_egg.mp3").toURI().toString());
-    private final Media bork = new Media(new File("COMP2042_CW_efyzw5-main\\src\\src\\main\\resources\\com\\example\\demo\\bork.mp3").toURI().toString());
-    private final Media bgMusicMedia_nor = new Media(new File("COMP2042_CW_efyzw5-main\\src\\src\\main\\resources\\com\\example\\demo\\bgMus_normal.mp3").toURI().toString());
+    public static final String resourceHeader="COMP2042_CW_efyzw5-main\\src\\src\\main\\resources\\com\\example\\demo\\";
+    private final Media bgMusicMedia_egg = new Media(new File(resourceHeader+"bgMusic_egg.mp3").toURI().toString());
+    private final Media bork = new Media(new File(resourceHeader+"bork.mp3").toURI().toString());
+    private final Media bgMusicMedia_nor = new Media(new File(resourceHeader+"bgMus_normal.mp3").toURI().toString());
     private final MediaPlayer bgMusicPlayer_egg = new MediaPlayer(bgMusicMedia_egg);
     private final MediaPlayer borkPlayer = new MediaPlayer(bork);
     private final MediaPlayer bgMusicPlayer_nor = new MediaPlayer(bgMusicMedia_nor);

@@ -1,6 +1,6 @@
 package com.example.demo.gameElements;
 
-import com.example.demo.DogeObserver;
+import com.example.demo.observerPattern.DogeObserver;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;

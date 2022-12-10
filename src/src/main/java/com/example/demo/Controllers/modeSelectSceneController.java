@@ -4,13 +4,13 @@ import com.example.demo.Main;
 import com.example.demo.gameElements.GameScene;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
+import static com.example.demo.Main.*;
 import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -68,7 +68,7 @@ public class modeSelectSceneController extends choiceBoxController {
     public void switchToScene() {
         Image Bg;
         if (!darkMode) {
-            Bg = new Image(new File("COMP2042_CW_efyzw5-main\\src\\src\\main\\resources\\com\\example\\demo\\back_nor.jpg").toURI().toString());
+            Bg = new Image(new File(resourceHeader+"back_nor.jpg").toURI().toString());
             ImageView pat = new ImageView(Bg);
             setGameRoot(new Group(pat));
             setGameScene(new Scene(gameRoot, Main.WIDTH, Main.HEIGHT, Color.rgb(246, 250, 249)));

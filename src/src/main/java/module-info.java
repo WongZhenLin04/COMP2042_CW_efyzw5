@@ -14,4 +14,6 @@ module com.example.demo {
     opens com.example.demo.Controllers.gameSceneControlllers to javafx.fxml;
     exports com.example.demo.endGameElements;
     opens com.example.demo.endGameElements to javafx.fxml;
+    exports com.example.demo.observerPattern;
+    opens com.example.demo.observerPattern to javafx.fxml;
 }

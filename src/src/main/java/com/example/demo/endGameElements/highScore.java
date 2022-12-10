@@ -3,6 +3,7 @@ import javafx.scene.Group;
 
 import static com.example.demo.Controllers.getProfileSceneController.*;
 import static com.example.demo.Controllers.modeSelectSceneController.*;
+import static com.example.demo.Main.*;
 import java.io.*;
 import java.util.Objects;
 /**
@@ -12,8 +13,8 @@ import java.util.Objects;
  * @author Zhen Lin Wong
  */
 public class highScore {
-    private final String pathToScore="COMP2042_CW_efyzw5-main\\src\\src\\main\\resources\\com\\example\\demo\\highScore.txt";
-    private final String pathToTemp="COMP2042_CW_efyzw5-main\\src\\src\\main\\resources\\com\\example\\demo\\temp.txt";
+    private final String pathToScore=resourceHeader+"highScore.txt";
+    private final String pathToTemp=resourceHeader+"temp.txt";
     private final endGameVisuals endGameVisuals = new endGameVisuals();
     /**
      * The method for determining if a new highscore for a certain game mode by the user. The method reads the highscore file line by line (in doing so also separating the game mode

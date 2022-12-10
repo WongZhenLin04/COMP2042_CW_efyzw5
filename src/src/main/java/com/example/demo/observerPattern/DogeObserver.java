@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.demo.observerPattern;
 /**
  * Class is used as a part of the implementation of the Observer pattern that is to be used to update classes when the Easter egg is activated.
  */

@@ -148,16 +148,14 @@ public class GameScene extends DogeSubject {
                         }
                     }
                     if (haveEmptyCell==0){
-                        if (stateChecker.canNotMove(cells)) {
-                            try {
-                                switchToEndGame switcheroo = new switchToEndGame(haveEmptyCell,score,primaryStage);
-                                switcheroo.switchToEndGame();
-                            }catch (Exception e){
-                                e.printStackTrace();
-                            }
-                            root.getChildren().clear();
-                            score = 0;
+                        try {
+                            switchToEndGame switcheroo = new switchToEndGame(haveEmptyCell,score,primaryStage);
+                            switcheroo.switchToEndGame();
+                        }catch (Exception e){
+                            e.printStackTrace();
                         }
+                        root.getChildren().clear();
+                        score = 0;
                     }
                 });
             });

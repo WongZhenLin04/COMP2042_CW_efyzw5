@@ -1,0 +1,68 @@
+#background{
+-fx-background-color: grey;
+}
+#titleStart{
+-fx-font-family: 'Open Sans Condensed', sans-serif;
+-fx-font-size: 64px;
+-fx-font-weight: 700;
+-fx-line-height: 64px;
+-fx-margin: 0 0 0;
+-fx-padding: 20px 30px;
+-fx-text-align: center;
+-fx-text-transform: uppercase;
+-fx-color: white;
+}
+.button {
+-fx-background-color: white;
+-fx-color: white;
+-fx-display: inline-flex;
+-fx-font-family: system-ui,-apple-system,system-ui,"Helvetica Neue",Helvetica,Arial,sans-serif;
+-fx-font-size: 16px;
+-fx-font-weight: 600;
+-fx-justify-content: center;
+ }
+.button:hover {
+-fx-border-color: black;
+ }
+#menuLabel{
+-fx-color: white;
+-fx-font-family: 'Open Sans Condensed', sans-serif;
+-fx-font-size: 40px;
+-fx-font-weight: 700;
+-fx-line-height: 64px;
+-fx-margin: 0 0 0;
+-fx-padding: 20px 30px;
+-fx-text-align: center;
+-fx-text-transform: uppercase;
+}
+#nameLabel{
+-fx-color: white;
+-fx-font-family: 'Open Sans Condensed', sans-serif;
+-fx-font-size: 40px;
+-fx-font-weight: 700;
+-fx-line-height: 64px;
+-fx-margin: 0 0 0;
+-fx-padding: 20px 30px;
+-fx-text-align: center;
+-fx-text-transform: uppercase;
+}
+#accountLabel{
+-fx-font-family: 'Open Sans Condensed', sans-serif;
+-fx-font-size: 40px;
+-fx-font-weight: 700;
+-fx-line-height: 64px;
+-fx-margin: 0 0 0;
+-fx-padding: 20px 30px;
+-fx-text-align: center;
+-fx-text-transform: uppercase;
+}
+#selectTitle{
+-fx-font-family: 'Open Sans Condensed', sans-serif;
+-fx-font-size: 40px;
+-fx-font-weight: 700;
+-fx-line-height: 64px;
+-fx-margin: 0 0 0;
+-fx-padding: 20px 30px;
+-fx-text-align: center;
+-fx-text-transform: uppercase;
+}

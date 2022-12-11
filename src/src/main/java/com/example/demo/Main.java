@@ -24,7 +24,7 @@ public class Main extends Application{
     public static final int WIDTH = 1250;
     public static final int HEIGHT = 768;
     private static boolean dogeMode=false;
-    public static final String resourceHeader="src\\src\\main\\resources\\com\\example\\demo\\";
+    public static final String resourceHeader="COMP2042_CW_efyzw5-main\\src\\src\\main\\resources\\com\\example\\demo\\";
     private final Media bgMusicMedia_egg = new Media(new File(resourceHeader+"bgMusic_egg.mp3").toURI().toString());
     private final Media bork = new Media(new File(resourceHeader+"bork.mp3").toURI().toString());
     private final Media bgMusicMedia_nor = new Media(new File(resourceHeader+"bgMus_normal.mp3").toURI().toString());
